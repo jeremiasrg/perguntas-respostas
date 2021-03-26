@@ -1,0 +1,256 @@
+@import "./Colors.scss";
+
+#sidebar-toggle {
+  display: none;
+}
+
+#sidebar-toggle:checked ~ .sidebar {
+  width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header .brand-text,
+#sidebar-toggle:checked ~ .sidebar .sidebar-header .brand-icon,
+#sidebar-toggle:checked ~ .sidebar li span:last-child {
+  display: none;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li {
+  display: flex;
+  justify-content: center;
+}
+
+#sidebar-toggle:checked ~ .main-content {
+  margin-left: 60px;
+}
+
+#sidebar-toggle:checked ~ .main-content header {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-menu .nav-text:hover .menu-title {
+  display: block;
+  color: $white;
+}
+
+.sidebar {
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: $main;
+  color: $white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 500ms;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0rem 1rem;
+}
+.sidebar-menu {
+  // padding: 1rem;
+  .menu-title {
+    position: fixed;
+    left: 50px;
+    z-index: 200;
+    margin-top: 2px;
+    background-color: $main;
+    height: 25px;
+    border-radius: 5px;
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-right: 7px;
+    color: $white;
+    display: none;
+    font-size: 0.84rem;
+  }
+}
+
+.sidebar li {
+  // margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+  color: $white;
+  font-size: 0.9rem;
+}
+
+.sidebar a span:last-child a {
+  padding-left: 0.6rem;
+}
+
+.main-content {
+  position: relative;
+  margin-left: 240px;
+  transition: margin-left 500ms;
+}
+
+header {
+  position: fixed;
+  left: 240px;
+  top: 0;
+  z-index: 100;
+  width: calc(100% - 240px);
+  background: $white;
+  height: 60px;
+  padding: 0rem 1rem;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $gray-light;
+  transition: left 500ms;
+}
+
+main {
+  margin-top: 60px;
+  background: $light;
+  min-height: 90vh;
+  padding: 1rem 1rem;
+}
+
+// Comecamos aqui a mudanca
+
+.sidebar-toggle {
+  font-size: 1.4rem;
+  color: $gray-light !important;
+  cursor: pointer;
+}
+
+.brand {
+  margin-top: 0.7rem;
+  margin-left: 0.3rem;
+  display: flex;
+  margin-top: -2px;
+}
+
+.brand-icon {
+  color: $red;
+  font-size: 1.6rem;
+  margin-right: 10px;
+}
+
+.brand-text {
+  margin-top: 2px;
+}
+
+.page-title {
+  color: $dark;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border-bottom: 2px solid $red;
+  width: fit-content;
+}
+
+// a.active {
+//   color: $red !important;
+//   background-color: $red;
+// }
+
+a svg {
+  font-size: 1.3rem;
+}
+
+a.active svg {
+  color: $red !important;
+  font-size: 1.6rem;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 3px;
+  list-style: none;
+  height: 50px;
+  font-weight: 500;
+  :hover {
+    color: $white;
+    text-decoration: none;
+    // .menu-title {
+    //   display: block;
+    //   color: $white;
+    // }
+  }
+  .active {
+    color: $gray-light;
+    background-color: unset;
+    border-left: 5px solid $red;
+    border-radius: 0;
+    padding-left: 8px;
+  }
+  a {
+    text-decoration: none;
+    color: $gray-light;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    :hover {
+      color: $white;
+    }
+    .active {
+      color: $red;
+    }
+    span {
+      margin-left: 18px;
+    }
+  }
+}
+
+.fundo-escuro {
+  background-color: $main;
+  height: 100px;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+}
+
+.espaco-fixo-usuario-logado {
+  // position: absolute;
+  // bottom: 30px;
+  // left: 15px;
+  width: 100%;
+  margin-left: 21px;
+  margin-top: 10px;
+}
+.espaco-fixo-usuario-logado.retraido {
+  margin-left: 15px;
+  width: 100%;
+  transition: 500ms;
+}
+.espaco-fixo-usuario-logado.retraido div div img {
+  width: 30px;
+  height: 30px;
+  transition: 500ms;
+}
+.espaco-fixo-usuario-logado.retraido div div div {
+  display: none;
+  transition: 500ms;
+}
+.espaco-fixo-menu-superior {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 65px;
+}
+.espaco-fixo-associacao {
+  width: 400px;
+  //   margin-left: 239px;
+}
+
+.menu-bars {
+  background: none;
+  color: $main;
+  font-size: 1.3rem;
+  margin-left: 40px;
+  cursor: pointer;
+}

@@ -1,0 +1,521 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "./base/Colors.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+table tr td {
+  font-size: 0.84rem;
+}
+.table th,
+.table td {
+  padding: 0.3rem;
+}
+
+.table thead th:first-child {
+  border-top-left-radius: 5px;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 5px;
+}
+.table thead th {
+  border-bottom: unset;
+  border-top: unset;
+  height: 40px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+.table tbody td {
+  vertical-align: middle;
+}
+.table tr:nth-child(even) {
+  background-color: #f1f0f0d3;
+}
+table tr th {
+  font-size: 0.78rem;
+  background-color: $white;
+  color: $main;
+}
+table tr td,
+table tr th {
+  font-family: "Varela Round";
+}
+
+.harpa-title {
+  font-family: "Merriweather";
+  margin-bottom: 2vh;
+}
+
+.filter {
+  margin-bottom: 10vh;
+}
+
+.home,
+.associacao,
+.membros {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.avatar_x1 {
+  .foto {
+    border-radius: 25px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 7px;
+  }
+  .texto_escuro {
+    padding-top: 1px;
+    color: $gray-dark;
+    font-weight: 600;
+  }
+  .sub_texto_escuro {
+    padding-top: 2px;
+    color: $gray-dark;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+  .texto_claro {
+    padding-top: 5px;
+    color: $white;
+    font-weight: 600;
+  }
+  .sub_texto_claro {
+    color: $gray-light;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+}
+.avatar_x2 {
+  .foto {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    //background-color: red;
+    float: left;
+    margin-right: 7px;
+  }
+  .texto_escuro {
+    padding-top: 5px;
+    color: $gray-dark;
+    font-weight: 600;
+  }
+  .sub_texto_escuro {
+    color: $gray-dark;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+  .texto_claro {
+    padding-top: 5px;
+    color: $white;
+    font-weight: 600;
+  }
+  .sub_texto_claro {
+    color: $gray-light;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+}
+.avatar_x3 {
+  .foto {
+    border-radius: 25px;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 7px;
+  }
+  .texto_escuro {
+    padding-top: 5px;
+    color: $gray-dark;
+    font-weight: 600;
+  }
+  .sub_texto_escuro {
+    color: $gray-dark;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+  .texto_claro {
+    padding-top: 5px;
+    color: $white;
+    font-weight: 600;
+  }
+  .sub_texto_claro {
+    color: $gray-light;
+    font-size: 13px;
+    margin-top: -5px;
+  }
+}
+
+.badge-associacao {
+  display: flex;
+  .texto {
+    padding-top: 5px;
+    color: $main;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .sub_texto {
+    color: $main;
+    font-size: 13px;
+    font-weight: 500;
+    float: left;
+  }
+  .icon {
+    font-size: 22px;
+    margin-right: 6px;
+    margin-top: 3px;
+  }
+}
+
+.site-content {
+  margin-top: 20px;
+  margin-left: 240px;
+}
+
+.box-sombra {
+  -webkit-box-shadow: 1px 3px 5px 5px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 1px 3px 5px 5px rgba(50, 50, 50, 0.1);
+  box-shadow: 1px 3px 5px 5px rgba(50, 50, 50, 0.1);
+  border-radius: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  //margin: 10px;
+  background-color: $white;
+}
+
+.icone-com-fundo.icon-blue svg {
+  font-size: 2vw;
+  color: $cyan;
+}
+.icone-com-fundo.icon-red svg {
+  font-size: 2vw;
+  color: $red;
+}
+
+.titulo-bold {
+  font-size: 1vw;
+  font-weight: bolder;
+}
+.titulo-normal {
+  font-size: 1vw;
+  font-weight: normal;
+}
+.titulo-bold.red {
+  color: $red;
+}
+.titulo-normal.red {
+  color: $red;
+}
+.titulo-normal.blue {
+  color: $blue;
+}
+.titulo-bold.blue {
+  color: $blue;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spacer1x {
+  padding: 5px;
+}
+.spacer2x {
+  padding: 20px;
+}
+.spacer3x {
+  padding: 30px;
+}
+
+.aba-notificacoes {
+  padding-top: 10px;
+  padding-left: 10px;
+  background-color: $gray-light;
+  width: 300px;
+  .items {
+    margin-left: 10px;
+    width: 100%;
+  }
+  .item {
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+
+    .textos {
+      margin-top: 10px;
+      margin-left: 10px;
+      .texto1 {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .texto2 {
+        font-weight: normal;
+        font-size: 12px;
+        color: $main;
+      }
+    }
+  }
+}
+
+.react-datepicker-wrapper {
+  display: flex;
+  input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $gray-dark;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $gray-light;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  input:focus {
+    color: $gray-dark;
+    background-color: $white;
+    border-color: $dark;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem $gray-dark;
+  }
+}
+
+.moreAction {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  color: $main;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12,
+.col,
+.col-auto,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm,
+.col-sm-auto,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md,
+.col-md-auto,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg,
+.col-lg-auto,
+.col-xl-1,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl,
+.col-xl-auto {
+  position: relative;
+  //width: 100%;
+  padding-right: 7px;
+  padding-left: 7px;
+  margin-bottom: 10px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -9px;
+  margin-left: -9px;
+}
+
+label {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modal-header {
+  padding: 0.2rem 1rem;
+}
+
+.postagem-texto {
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.reactEasyCrop_Container {
+  height: 450px;
+}
+
+.requiredLabel {
+  color: $red;
+  margin-left: 5px;
+}
+
+.badge-success {
+  background-color: $success;
+}
+
+.badge-warning {
+  background-color: $warning;
+}
+
+.badge-primary {
+  background-color: $primary;
+}
+
+.table-wrapper {
+  background-color: $white;
+  padding-top: 20px;
+  padding-top: 20px;
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: $main;
+    border-radius: 5px;
+    color: $white;
+  }
+  .title {
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 1.3rem;
+  }
+  .btn-novo {
+    margin-top: 15px;
+  }
+}
+
+.nav-tabs {
+  background-color: $white;
+}
+.nav-tabs .nav-item .nav-link {
+  color: $main;
+  font-size: 0.8rem;
+}
+.nav-tabs .nav-link.active {
+  border-bottom-color: $orange;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-width: 2px;
+}
+
+.modal-header {
+  background-color: $main;
+  color: $white;
+  height: 50px;
+  padding-top: 5px;
+  .close {
+    color: $white;
+    outline: unset;
+  }
+}
+
+.fc-event-title-container,
+.fc-event-main-frame,
+.fc-event-time {
+  background-color: $main;
+}
+.fc-daygrid-day {
+  background-color: $white;
+  // opacity: 0.2;
+  //back
+}
+.fc-daygrid-day-top .fc-daygrid-day-number {
+  color: $main;
+}
+.fc-col-header-cell-cushion {
+  color: $main;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: background-opacity($orange, 0.7);
+  // opacity: 0.3;
+}
+.normal-form {
+  background-color: $white;
+  padding-top: 25px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $gray-light;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $gray-light;
+}

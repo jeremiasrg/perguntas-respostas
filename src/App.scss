@@ -1,5 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import "./base/Colors.scss";
+@import "~bootstrap/scss/functions";
+@import "./variables";
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
 
 * {
   box-sizing: border-box;
@@ -152,27 +190,6 @@ table tr th {
     color: $gray-light;
     font-size: 13px;
     margin-top: -5px;
-  }
-}
-
-.badge-associacao {
-  display: flex;
-  .texto {
-    padding-top: 5px;
-    color: $main;
-    font-weight: 600;
-    font-size: 0.8rem;
-  }
-  .sub_texto {
-    color: $main;
-    font-size: 13px;
-    font-weight: 500;
-    float: left;
-  }
-  .icon {
-    font-size: 22px;
-    margin-right: 6px;
-    margin-top: 3px;
   }
 }
 

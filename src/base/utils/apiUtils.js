@@ -1,7 +1,7 @@
 import { get, post, put, remove } from "../http";
 import * as TokenUtils from "../utils/tokenUtils";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 export const APPS_URL_ENUM = {
   APP: process.env.REACT_APP_API_URL,
@@ -23,8 +23,8 @@ export async function invokeGetAPI(
     const dataGet = await get(APPS_URL + context, header);
     return dataGet;
   } catch (error) {
-    toast.configure();
-    toast.error(error.message);
+    // toast.configure();
+    // toast.error(error.message);
   }
 }
 
@@ -51,9 +51,8 @@ export async function invokePostAPI(
     }
     return dataPost;
   } catch (error) {
-    toast.configure();
-    toast.error(error.message);
-
+    // toast.configure();
+    // toast.error(error.message);
     //alert(error.message);
   }
 }
@@ -73,8 +72,8 @@ export async function invokePutAPI(
     // toast.success("Operação realizada com sucesso.");
     return dataPut;
   } catch (error) {
-    toast.configure();
-    toast.error(error.message);
+    // toast.configure();
+    // toast.error(error.message);
     //alert(error.message);
   }
 }

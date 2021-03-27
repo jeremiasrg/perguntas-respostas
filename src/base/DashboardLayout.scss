@@ -127,7 +127,14 @@ main {
 .brand {
   margin-top: 0.7rem;
   margin-left: 0.3rem;
-  display: flex;
+  display: flex !important;
+  margin-top: -2px;
+}
+
+.brand-outside {
+  margin-top: 0.7rem;
+  margin-left: 0.3rem;
+  display: flex !important;
   margin-top: -2px;
 }
 
@@ -242,7 +249,7 @@ a.active svg {
   justify-content: space-between;
   margin-right: 65px;
 }
-.espaco-fixo-associacao {
+.espaco-fixo-brand-outside {
   width: 400px;
   //   margin-left: 239px;
 }

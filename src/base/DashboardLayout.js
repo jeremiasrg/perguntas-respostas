@@ -240,16 +240,14 @@ export default (props) => {
 
           <div class="main-content">
             <header>
-              <div className="espaco-fixo-associacao">
-                <div className="badge-associacao">
-                  <BiIcons.BiChurch className="icon" />
-                  <div className="texto">
-                    {/* {TokenUtils.getNameAssociacaoFromAppToken()} */}
-                  </div>
-                  <div className="sub_texto" style={{ display: "none" }}>
-                    Matriz- Rua das laranjeiras 124. SP
-                  </div>
-                </div>
+              <div className="espaco-fixo-brand-outside">
+                <h3
+                  class="brand-outside"
+                  style={sidebar ? { display: "none" } : { display: "block" }}
+                >
+                  <FaIcons.FaBrain className="brand-icon"></FaIcons.FaBrain>
+                  <span className="brand-text">Study</span>
+                </h3>
               </div>
 
               <div className="espaco-fixo-menu-superior">

@@ -311,35 +311,44 @@ export default (props) => {
     >
       <Form.Row>{escreveCamposDoForm(props)}</Form.Row>
       {props.children}
-      <Container>
-        <Col md={props.mdButtons}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            {props.teste || props.teste === true ? (
-              <Button type="Button" onClick={montarJsonAPI} variant="secondary">
-                Testar saida
-              </Button>
-            ) : null}
-            <div style={{ width: "10px" }}></div>
-            {props.showSaveButton || props.showSaveButton === undefined ? (
-              <Button type="submit" variant="secondary">
-                {props.saveLabel === undefined ? "Salvar" : props.saveLabel}
-              </Button>
-            ) : null}
-            <div style={{ width: "10px" }}></div>
-            {props.showCancelButton || props.showCancelButton === undefined ? (
-              <Button variant="danger" onClick={props.onCancel}>
-                {props.cancelLabel === undefined
-                  ? "Cancelar"
-                  : props.cancelLabel}
-              </Button>
-            ) : null}
-          </div>
-        </Col>
+      <Container
+        style={{ backgroundColor: "white", padding: 0, marginTop: "-11px" }}
+      >
+        <Row>
+          <Col md={props.mdButtons}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              {props.teste || props.teste === true ? (
+                <Button
+                  type="Button"
+                  onClick={montarJsonAPI}
+                  variant="secondary"
+                >
+                  Testar saida
+                </Button>
+              ) : null}
+              <div style={{ width: "10px" }}></div>
+              {props.showSaveButton || props.showSaveButton === undefined ? (
+                <Button type="submit" variant="secondary">
+                  {props.saveLabel === undefined ? "Salvar" : props.saveLabel}
+                </Button>
+              ) : null}
+              <div style={{ width: "10px" }}></div>
+              {props.showCancelButton ||
+              props.showCancelButton === undefined ? (
+                <Button variant="danger" onClick={props.onCancel}>
+                  {props.cancelLabel === undefined
+                    ? "Cancelar"
+                    : props.cancelLabel}
+                </Button>
+              ) : null}
+            </div>
+          </Col>
+        </Row>
       </Container>
     </Form>
   );

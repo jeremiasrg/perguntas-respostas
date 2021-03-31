@@ -395,7 +395,7 @@ table tr th {
   //width: 100%;
   padding-right: 7px;
   padding-left: 7px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 .row {
   display: flex;
@@ -513,8 +513,14 @@ label {
   // opacity: 0.3;
 }
 .normal-form {
-  background-color: $white;
   padding-top: 25px;
+}
+
+.row {
+  background-color: $white;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* width */
@@ -535,4 +541,31 @@ label {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: $gray-light;
+}
+
+.pergunta {
+  display: flex;
+  justify-content: space-between;
+
+  .numero {
+    font-size: 1.6em;
+    margin-top: 31px;
+  }
+}
+.resposta {
+  display: flex;
+  justify-content: center;
+
+  .letra {
+    font-size: 1em;
+    margin-top: 45px;
+    display: flex;
+  }
+}
+
+.btn-add-resposta {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5em;
+  margin-top: 5px;
 }

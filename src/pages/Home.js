@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import PageBase from "../pages/PageBase";
 import Form from "../components/communs/Form";
 import { Col, Container, Row, Modal, Button, Image } from "react-bootstrap";
@@ -7,11 +8,13 @@ import CheckBox from "../components/communs/input/CheckBox";
 import RadioButton from "../components/communs/input/RadioButton";
 import TextArea from "../components/communs/input/TextArea";
 import * as StringUtils from "../base/utils/stringUtils";
+import * as CypherUtils from "../base/utils/cypherUtils";
 
 export default (props) => {
   const [nome, setNome] = useState();
   const [perguntas, setPerguntas] = useState([]);
   const [size, setSize] = useState(0);
+  const [arquivo, setArquivo] = useState(0);
 
   const auxPerguntas = [...perguntas];
 
@@ -75,7 +78,7 @@ export default (props) => {
               rows="4"
               value={auxPerguntas[index].question}
               onChange={(valor) => (auxPerguntas[index].question = valor)}
-              required={false}
+              required={true}
               label=" "
             ></TextArea>
             <Col md="auto">
@@ -137,7 +140,7 @@ export default (props) => {
                   md="10"
                   value={resposta.text}
                   onChange={(valor) => (resposta.text = valor)}
-                  required={false}
+                  required={true}
                   label=" "
                 ></TextArea>
                 <div style={{ marginTop: "40px" }}>
@@ -175,10 +178,29 @@ export default (props) => {
   function onSave() {
     setSize(size + 1);
     console.log(perguntas);
+    let texto = JSON.stringify(perguntas);
+    console.log("Texto : " + texto);
+
+    let rt = CypherUtils.encrypt(texto);
+    console.log(rt);
+
+    console.log("Decypher : " + CypherUtils.decrypt(rt));
+
+    download(rt);
   }
+
+  function download(output) {
+    const element = document.createElement("a");
+    const file = new Blob([output], { type: "text/plain;charset=utf-8" });
+    element.href = URL.createObjectURL(file);
+    element.download = nome + ".jr";
+    document.body.appendChild(element);
+    element.click();
+  }
+
   return (
     <PageBase titulo="Novo teste">
-      <Form showCancelButton={false} onSave={onSave}>
+      <Form showCancelButton={false} onSave={onSave} saveLabel="Download">
         <Container fluid>
           <Row>
             <Col md="12">
@@ -188,7 +210,7 @@ export default (props) => {
               <InputText
                 value={nome}
                 onChange={(valor) => setNome(valor)}
-                required={false}
+                required={true}
                 label="Título"
               ></InputText>
             </Col>

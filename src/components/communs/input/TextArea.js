@@ -21,8 +21,6 @@ export default (props) => {
         rows={props.rows}
         name={props.name}
         onChange={(value) => {
-          console.log(value.target.value);
-
           setState(value.target.value);
           props.onChange && props.onChange(value.currentTarget.value);
         }}

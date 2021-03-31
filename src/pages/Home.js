@@ -18,14 +18,20 @@ export default (props) => {
   function addPergunta() {
     let questions = perguntas;
 
-    let guid = StringUtils.generateGuid();
-
     questions.push({
-      id: guid,
       multiple: false,
       question: "",
       answers: [{ text: "", check: false }],
     });
+
+    setPerguntas(questions);
+    setSize(perguntas.length);
+  }
+
+  function removePergunta(index) {
+    let questions = perguntas;
+
+    questions.splice(index, 1);
 
     setPerguntas(questions);
     setSize(perguntas.length);
@@ -37,6 +43,14 @@ export default (props) => {
     let questions = perguntas;
     questions[perguntaIndex].answers.push({ text: "", check: false });
     console.log(questions[perguntaIndex].answers.length);
+
+    setPerguntas(questions);
+    setSize(size + 1);
+  }
+
+  function removeResposta(perguntaIndex, respostaIndex) {
+    let questions = perguntas;
+    questions[perguntaIndex].answers.splice(respostaIndex, 1);
 
     setPerguntas(questions);
     setSize(size + 1);
@@ -58,15 +72,29 @@ export default (props) => {
             </Col>
             <TextArea
               md="10"
+              rows="4"
               value={auxPerguntas[index].question}
               onChange={(valor) => (auxPerguntas[index].question = valor)}
               required={false}
               label=" "
             ></TextArea>
-            <div style={{ marginTop: "41px" }}>
+            <Col md="auto">
+              <div style={{ marginTop: "65px" }}>
+                <Button
+                  onClick={() => {
+                    removePergunta(index);
+                  }}
+                  variant="danger"
+                  size="sm"
+                >
+                  X
+                </Button>
+              </div>
+            </Col>
+            <div style={{ marginTop: "65px" }}>
               <CheckBox
                 md="auto"
-                label="Multipla escolha ?"
+                label="Multipla escolha?"
                 value={auxPerguntas[index].multiple}
                 onChange={(valor) => {
                   auxPerguntas[index].multiple = valor;
@@ -112,6 +140,17 @@ export default (props) => {
                   required={false}
                   label=" "
                 ></TextArea>
+                <div style={{ marginTop: "40px" }}>
+                  <Button
+                    onClick={() => {
+                      removeResposta(index, i);
+                    }}
+                    variant="danger"
+                    size="sm"
+                  >
+                    X
+                  </Button>
+                </div>
               </div>
             </Col>
           </>

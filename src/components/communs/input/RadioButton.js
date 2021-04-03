@@ -7,17 +7,8 @@ export default (props) => {
 
   // const { setGlobal } = useContext(GlobalContext);
 
-  const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-
   async function onChange(value) {
     setState(value.currentTarget.ckecked);
-    console.log(value.currentTarget.value);
 
     if (props.onChange !== undefined) {
       props.onChange(value.currentTarget.ckecked);

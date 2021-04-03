@@ -312,7 +312,14 @@ export default (props) => {
       <Form.Row>{escreveCamposDoForm(props)}</Form.Row>
       {props.children}
       <Container
-        style={{ backgroundColor: "white", padding: 0, marginTop: "-11px" }}
+        fluid
+        style={{
+          // backgroundColor: "white",
+          // padding: 0,
+          marginTop: "-11px",
+          // paddingRight: "10px",
+          // paddingLeft: "10px",
+        }}
       >
         <Row>
           <Col md={props.mdButtons}>

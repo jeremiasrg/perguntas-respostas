@@ -14,12 +14,28 @@ export default (props) => {
       reader.onload = () => resolve(reader.result);
       reader.onerror = (error) => reject(error);
     });
+  const toBinaryString = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsBinaryString(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
 
   async function onChange(e) {
     let file = e.target.files[0];
     // setGlobal({ isLoading: true });
-    let retorno = await toBase64(file);
-    console.log(retorno);
+    console.log(file);
+
+    let retorno;
+
+    if (props.tpRetorno === undefined) {
+      retorno = await toBase64(file);
+      console.log(retorno);
+    } else {
+      retorno = await toBinaryString(file);
+      console.log(retorno);
+    }
     props.onChange && props.onChange(retorno);
     setState(retorno);
     // setGlobal({ isLoading: false });

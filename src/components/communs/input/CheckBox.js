@@ -3,17 +3,9 @@ import { Form, Col } from "react-bootstrap";
 // import { GlobalContext } from "../../../providers/global";
 
 export default (props) => {
-  const [state, setState] = useState("");
+  const [state, setState] = useState(false);
 
   // const { setGlobal } = useContext(GlobalContext);
-
-  const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
 
   async function onChange(value) {
     setState(value.currentTarget.checked);
@@ -32,7 +24,7 @@ export default (props) => {
       <Form.Check
         required={props.required}
         type="checkbox"
-        defaultChecked={props.value}
+        defaultChecked={state}
         label={props.label}
         onChange={onChange}
       />

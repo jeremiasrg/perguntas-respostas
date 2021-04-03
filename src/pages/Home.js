@@ -6,25 +6,30 @@ import { Col, Container, Row, Modal, Button, Image } from "react-bootstrap";
 import InputText from "../components/communs/input/InputText";
 import CheckBox from "../components/communs/input/CheckBox";
 import RadioButton from "../components/communs/input/RadioButton";
+import InputFile from "../components/communs/input/InputFile";
 import TextArea from "../components/communs/input/TextArea";
 import * as StringUtils from "../base/utils/stringUtils";
 import * as CypherUtils from "../base/utils/cypherUtils";
+import Pergunta from "../components/Pergunta";
+import Resposta from "../components/Resposta";
+
+import xml2js from "xml2js";
 
 export default (props) => {
   const [nome, setNome] = useState();
   const [perguntas, setPerguntas] = useState([]);
   const [size, setSize] = useState(0);
-  const [arquivo, setArquivo] = useState(0);
+  const [xml, setXml] = useState();
 
   const auxPerguntas = [...perguntas];
 
-  function addPergunta() {
+  function addPergunta(texto = "", respostas = [{ text: "", check: false }]) {
     let questions = perguntas;
 
     questions.push({
       multiple: false,
-      question: "",
-      answers: [{ text: "", check: false }],
+      question: texto,
+      answers: respostas,
     });
 
     setPerguntas(questions);
@@ -32,6 +37,8 @@ export default (props) => {
   }
 
   function removePergunta(index) {
+    console.log("Remove pergunta: " + index);
+
     let questions = perguntas;
 
     questions.splice(index, 1);
@@ -63,100 +70,50 @@ export default (props) => {
     auxPerguntas[i].answers.map((resposta, index) => {
       resposta.check = false;
     });
+    console.log("Perguntas resetadas");
+    console.log(auxPerguntas);
   }
 
   const escrevePerguntas = () => {
     return auxPerguntas.map((pergunta, index) => (
       <Row>
-        <Col md="12">
-          <div className="pergunta">
-            <Col md="auto">
-              <div className="numero"> {index + 1 + " - "} </div>
-            </Col>
-            <TextArea
-              md="10"
-              rows="4"
-              value={auxPerguntas[index].question}
-              onChange={(valor) => (auxPerguntas[index].question = valor)}
-              required={true}
-              label=" "
-            ></TextArea>
-            <Col md="auto">
-              <div style={{ marginTop: "65px" }}>
-                <Button
-                  onClick={() => {
-                    removePergunta(index);
-                  }}
-                  variant="danger"
-                  size="sm"
-                >
-                  X
-                </Button>
-              </div>
-            </Col>
-            <div style={{ marginTop: "65px" }}>
-              <CheckBox
-                md="auto"
-                label="Multipla escolha?"
-                value={auxPerguntas[index].multiple}
-                onChange={(valor) => {
-                  auxPerguntas[index].multiple = valor;
-                  // setPerguntas(auxPerguntas);
-                  resetRespostas(index);
-                  setSize(size + 1);
-                }}
-              ></CheckBox>
-            </div>
-          </div>
-        </Col>
+        <Pergunta
+          texto={auxPerguntas[index].question}
+          index={index}
+          onTextoChange={(valor) => (auxPerguntas[index].question = valor)}
+          onMultiplaEscolhaChange={(valor) => {
+            resetRespostas(index);
+            auxPerguntas[index].multiple = valor;
+            setSize(size + 1);
+          }}
+          removePergunta={() => {
+            removePergunta(index);
+          }}
+        ></Pergunta>
 
         {pergunta.answers.map((resposta, i) => (
-          <>
-            <Col md="12">
-              <div className="resposta">
-                <div className="letra">
-                  {StringUtils.converteNumeroEmLetra(i + 1) + ")"}
-
-                  {auxPerguntas[index].multiple ? (
-                    <CheckBox
-                      md="auto"
-                      value={resposta.check}
-                      onChange={(valor) => (resposta.check = valor)}
-                    ></CheckBox>
-                  ) : (
-                    <RadioButton
-                      md="auto"
-                      // name={auxPerguntas[index].id}
-                      value={resposta.check}
-                      onChange={(valor) => {
-                        resetRespostas(index);
-                        resposta.check = true;
-                        setSize(size + 1);
-                      }}
-                    ></RadioButton>
-                  )}
-                </div>
-                <TextArea
-                  md="10"
-                  value={resposta.text}
-                  onChange={(valor) => (resposta.text = valor)}
-                  required={true}
-                  label=" "
-                ></TextArea>
-                <div style={{ marginTop: "40px" }}>
-                  <Button
-                    onClick={() => {
-                      removeResposta(index, i);
-                    }}
-                    variant="danger"
-                    size="sm"
-                  >
-                    X
-                  </Button>
-                </div>
-              </div>
-            </Col>
-          </>
+          <Resposta
+            indexPergunta={index}
+            index={i}
+            check={resposta.check}
+            texto={resposta.text}
+            onTextoChange={(valor) => (resposta.text = valor)}
+            multipla={auxPerguntas[index].multiple}
+            removeResposta={() => {
+              removeResposta(index, i);
+            }}
+            onOpcaoRespostaChange={(valor) => {
+              if (auxPerguntas[index].multiple) {
+                // resetRespostas(index);
+                resposta.check = valor;
+                setSize(size + 1);
+              } else {
+                resetRespostas(index);
+                resposta.check = true;
+                setSize(size + 1);
+              }
+            }}
+          ></Resposta>
         ))}
         <Col md="12">
           <div className="btn-add-resposta">
@@ -173,6 +130,39 @@ export default (props) => {
         </Col>
       </Row>
     ));
+  };
+
+  const carregaXML = (xml) => {
+    let parser = new xml2js.Parser();
+
+    // let cleanedString = value.replace("\ufeff", "");
+
+    parser
+      .parseStringPromise(xml)
+      .then(function (result) {
+        console.log(result);
+
+        setNome(result.Test.$.title);
+        result.Test.Questions[0].Question.map((pergunta, i) => {
+          //console.log(pergunta);
+          let pTexto = pergunta.$.text;
+          let respostas = [];
+          pergunta.Answers[0].Answer.map((resposta, i2) => {
+            console.log(resposta.$.correct);
+
+            respostas.push({
+              text: resposta.$.text,
+              check: resposta.$.correct === "true",
+            });
+          });
+          console.log(respostas);
+          addPergunta(pTexto, respostas);
+        });
+      })
+      .catch(function (err) {
+        // Failed
+        console.log(err);
+      });
   };
 
   function onSave() {
@@ -200,11 +190,42 @@ export default (props) => {
 
   return (
     <PageBase titulo="Novo teste">
-      <Form showCancelButton={false} onSave={onSave} saveLabel="Download">
+      <Form
+        showCancelButton={false}
+        onSave={onSave}
+        saveLabel="Download"
+        mdButtons="12"
+      >
         <Container fluid>
           <Row>
+            <Col md="6">
+              <h5 style={{ marginTop: "10px" }}>
+                Crie um novo teste a partir de um arquivo xml:
+              </h5>
+            </Col>
+            <Col md="6">
+              <div
+                style={{
+                  marginTop: "10px",
+                  position: "relative",
+                  top: "-26px",
+                }}
+              >
+                <InputFile
+                  tpRetorno="String"
+                  value={xml}
+                  onChange={(value) => {
+                    console.log(value);
+                    setXml(value);
+                    carregaXML(value);
+                  }}
+                ></InputFile>
+              </div>
+            </Col>
             <Col md="12">
-              <h5>Crie um novo teste</h5>
+              <h5>
+                ou crie um novo teste escrevendo suas perguntas e respostas
+              </h5>
             </Col>
             <Col md="10">
               <InputText
@@ -222,13 +243,6 @@ export default (props) => {
               >
                 + Adicionar pergunta
               </Button>
-            </Col>
-            <Col md="12">
-              <div style={{ marginTop: "15px" }}>
-                <h5>
-                  Adicione perguntas e informe a(s) resposta(s) correta(s)
-                </h5>
-              </div>
             </Col>
           </Row>
           {escrevePerguntas()}

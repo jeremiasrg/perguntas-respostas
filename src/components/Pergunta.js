@@ -10,6 +10,7 @@ export default (props) => {
 
   useEffect(() => {
     setTexto(props.texto);
+    setMultiple(props.multiplaEscolha);
   }, [props.texto]);
 
   return (

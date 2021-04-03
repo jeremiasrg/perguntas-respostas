@@ -25,6 +25,7 @@ export default (props) => {
         required={props.required}
         type="checkbox"
         defaultChecked={state}
+        checked={props.value}
         label={props.label}
         onChange={onChange}
       />

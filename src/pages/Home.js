@@ -23,11 +23,15 @@ export default (props) => {
 
   const auxPerguntas = [...perguntas];
 
-  function addPergunta(texto = "", respostas = [{ text: "", check: false }]) {
+  function addPergunta(
+    texto = "",
+    respostas = [{ text: "", check: false }],
+    multiple = false
+  ) {
     let questions = perguntas;
 
     questions.push({
-      multiple: false,
+      multiple: multiple,
       question: texto,
       answers: respostas,
     });
@@ -80,6 +84,7 @@ export default (props) => {
         <Pergunta
           texto={auxPerguntas[index].question}
           index={index}
+          multiplaEscolha={auxPerguntas[index].multiple}
           onTextoChange={(valor) => (auxPerguntas[index].question = valor)}
           onMultiplaEscolhaChange={(valor) => {
             resetRespostas(index);
@@ -147,16 +152,21 @@ export default (props) => {
           //console.log(pergunta);
           let pTexto = pergunta.$.text;
           let respostas = [];
+          let contCorrect = 0;
           pergunta.Answers[0].Answer.map((resposta, i2) => {
             console.log(resposta.$.correct);
+
+            if (resposta.$.correct === "true") {
+              contCorrect = contCorrect + 1;
+            }
 
             respostas.push({
               text: resposta.$.text,
               check: resposta.$.correct === "true",
             });
           });
-          console.log(respostas);
-          addPergunta(pTexto, respostas);
+          console.log(contCorrect);
+          addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
         });
       })
       .catch(function (err) {

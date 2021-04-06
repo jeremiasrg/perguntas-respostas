@@ -9,7 +9,9 @@ import RadioButton from "../components/communs/input/RadioButton";
 import InputFile from "../components/communs/input/InputFile";
 import TextArea from "../components/communs/input/TextArea";
 import * as StringUtils from "../base/utils/stringUtils";
-import * as CypherUtils from "../base/utils/cypherUtils";
+import { Base64 } from "../base/utils/Base64";
+// import * as CypherUtils from "../base/utils/cypherUtils";
+
 import Pergunta from "../components/Pergunta";
 import Resposta from "../components/Resposta";
 
@@ -181,10 +183,10 @@ export default (props) => {
     let texto = JSON.stringify(perguntas);
     console.log("Texto : " + texto);
 
-    let rt = CypherUtils.encrypt(texto);
+    let rt = Base64.btoa(texto);
     console.log(rt);
-
-    console.log("Decypher : " + CypherUtils.decrypt(rt));
+    let final = Base64.atob(rt);
+    console.log("final: " + final);
 
     download(rt);
   }

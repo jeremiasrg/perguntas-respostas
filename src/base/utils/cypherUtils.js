@@ -1,7 +1,7 @@
 import * as crypto from "crypto";
 
 export const encrypt = (value) => {
-  const secret = "jrjrjrjrjrjrjrjrjrjrjrjrjrjrjrjr";
+  const secret = "jR&z#NEJ%yH-Pk=BmARd*Q4:~uT#ypc9";
   const iv = Buffer.from(crypto.randomBytes(16));
   const cipher = crypto.createCipheriv("aes-256-cbc", Buffer.from(secret), iv);
   let encrypted = cipher.update(value);
@@ -10,7 +10,7 @@ export const encrypt = (value) => {
 };
 
 export const decrypt = (value) => {
-  const secret = "jrjrjrjrjrjrjrjrjrjrjrjrjrjrjrjr";
+  const secret = "jR&z#NEJ%yH-Pk=BmARd*Q4:~uT#ypc9";
   const [iv, encrypted] = value.split(":");
   const ivBuffer = Buffer.from(iv, "hex");
   const decipher = crypto.createDecipheriv(

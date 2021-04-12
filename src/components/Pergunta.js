@@ -5,7 +5,7 @@ import TextArea from "../components/communs/input/TextArea";
 import CheckBox from "../components/communs/input/CheckBox";
 
 export default (props) => {
-  const [texto, setTexto] = useState();
+  const [texto, setTexto] = useState("");
   const [multiple, setMultiple] = useState();
 
   useEffect(() => {

@@ -9,11 +9,11 @@ import * as StringUtils from "../base/utils/stringUtils";
 
 export default (props) => {
   const [texto, setTexto] = useState();
-  const [check, setCheck] = useState();
+  const [correct, setCorrect] = useState();
 
   useEffect(() => {
-    setCheck(props.check);
-  }, [props.multipla, props.check]);
+    setCorrect(props.correct);
+  }, [props.multipla, props.correct]);
 
   useEffect(() => {
     setTexto(props.texto);
@@ -28,18 +28,16 @@ export default (props) => {
           {props.multipla ? (
             <CheckBox
               md="auto"
-              value={check}
+              value={correct}
               onChange={(valor) => {
-                // setCheck(valor);
                 props.onOpcaoRespostaChange(valor);
               }}
             ></CheckBox>
           ) : (
             <RadioButton
               md="auto"
-              value={check}
+              value={correct}
               onChange={(valor) => {
-                // setCheck(true);
                 props.onOpcaoRespostaChange(true);
               }}
             ></RadioButton>

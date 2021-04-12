@@ -4,13 +4,8 @@ import PageBase from "../pages/PageBase";
 import Form from "../components/communs/Form";
 import { Col, Container, Row, Modal, Button, Image } from "react-bootstrap";
 import InputText from "../components/communs/input/InputText";
-import CheckBox from "../components/communs/input/CheckBox";
-import RadioButton from "../components/communs/input/RadioButton";
 import InputFile from "../components/communs/input/InputFile";
-import TextArea from "../components/communs/input/TextArea";
-import * as StringUtils from "../base/utils/stringUtils";
 import { Base64 } from "../base/utils/Base64";
-// import * as CypherUtils from "../base/utils/cypherUtils";
 
 import Pergunta from "../components/Pergunta";
 import Resposta from "../components/Resposta";
@@ -27,7 +22,7 @@ export default (props) => {
 
   function addPergunta(
     texto = "",
-    respostas = [{ text: "", check: false }],
+    respostas = [{ text: "", correct: false, marked: false }],
     multiple = false
   ) {
     let questions = perguntas;
@@ -57,7 +52,11 @@ export default (props) => {
     console.log(perguntaIndex);
 
     let questions = perguntas;
-    questions[perguntaIndex].answers.push({ text: "", check: false });
+    questions[perguntaIndex].answers.push({
+      text: "",
+      correct: false,
+      marked: false,
+    });
     console.log(questions[perguntaIndex].answers.length);
 
     setPerguntas(questions);
@@ -74,7 +73,7 @@ export default (props) => {
 
   function resetRespostas(i) {
     auxPerguntas[i].answers.map((resposta, index) => {
-      resposta.check = false;
+      resposta.correct = false;
     });
     console.log("Perguntas resetadas");
     console.log(auxPerguntas);
@@ -102,7 +101,7 @@ export default (props) => {
           <Resposta
             indexPergunta={index}
             index={i}
-            check={resposta.check}
+            correct={resposta.correct}
             texto={resposta.text}
             onTextoChange={(valor) => (resposta.text = valor)}
             multipla={auxPerguntas[index].multiple}
@@ -112,11 +111,11 @@ export default (props) => {
             onOpcaoRespostaChange={(valor) => {
               if (auxPerguntas[index].multiple) {
                 // resetRespostas(index);
-                resposta.check = valor;
+                resposta.correct = valor;
                 setSize(size + 1);
               } else {
                 resetRespostas(index);
-                resposta.check = true;
+                resposta.correct = true;
                 setSize(size + 1);
               }
             }}
@@ -164,7 +163,7 @@ export default (props) => {
 
             respostas.push({
               text: resposta.$.text,
-              check: resposta.$.correct === "true",
+              correct: resposta.$.correct === "true",
             });
           });
           console.log(contCorrect);
@@ -179,14 +178,17 @@ export default (props) => {
 
   function onSave() {
     setSize(size + 1);
-    console.log(perguntas);
-    let texto = JSON.stringify(perguntas);
+    let finalContent = { title: nome, questions: perguntas };
+    console.log("Final content");
+    console.log(finalContent);
+
+    let texto = JSON.stringify(finalContent);
     console.log("Texto : " + texto);
 
     let rt = Base64.btoa(texto);
     console.log(rt);
     let final = Base64.atob(rt);
-    console.log("final: " + final);
+    console.log("final base64: " + final);
 
     download(rt);
   }
@@ -251,7 +253,9 @@ export default (props) => {
               <Button
                 style={{ marginTop: "26px" }}
                 size="sm"
-                onClick={addPergunta}
+                onClick={() => {
+                  addPergunta();
+                }}
               >
                 + Adicionar pergunta
               </Button>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import InputText from "./input/InputText";
 import InputDate from "./input/InputDate";
@@ -9,11 +9,11 @@ import TextArea from "./input/TextArea";
 import InputFile from "./input/InputFile";
 import * as APIUtils from "../../base/utils/apiUtils";
 import * as DateUtils from "../../base/utils/dateUtils";
-import * as operations from "../../components/communs/operations";
+import * as operations from "./operations";
 
 // import { GlobalContext } from "../../providers/global";
 
-export default (props) => {
+function Forms(props) {
   const [validated, setValidated] = useState(false);
 
   // const { setGlobal } = useContext(GlobalContext);
@@ -264,30 +264,33 @@ export default (props) => {
         stringLogica = stringLogica + "['" + attrs[i] + "']";
 
         if (attrs.length - 1 === i) {
-          const attr = attrs[i];
           if (valor === "") {
             // console.log(stringLogica);
-            eval(stringLogica + "=" + "''");
+            // eslint-disable-next-line no-eval
+            eval(stringLogica + "=''");
           } else if (valor === null) {
             // console.log(stringLogica);
-            eval(stringLogica + "=" + "null");
+            // eslint-disable-next-line no-eval
+            eval(stringLogica + "=null");
           } else if (Array.isArray(valor)) {
             let valorFinal = "";
             for (let z = 0; z < valor.length; z++) {
               valorFinal = valorFinal + "'" + valor[z] + "',";
             }
             valorFinal = valorFinal.substr(0, valorFinal.length - 1);
+            // eslint-disable-next-line no-eval
             eval(stringLogica + "=[" + valorFinal + "]");
           } else {
             // console.log("BBBBBBBB");
             // console.log(valor);
-
-            eval(stringLogica + "=" + "`" + valor + "`");
+            // eslint-disable-next-line no-eval
+            eval(stringLogica + "=`" + valor + "`");
           }
           // console.log(stringLogica);
+          // eslint-disable-next-line no-eval
         } else if (eval(stringLogica) === undefined) {
-          const attr = attrs[i];
-          eval(stringLogica + "=" + "{}");
+          // eslint-disable-next-line no-eval
+          eval(stringLogica + "={}");
           // console.log(stringLogica + "=" + "{}");
           // console.log(attr);
         }
@@ -359,4 +362,5 @@ export default (props) => {
       </Container>
     </Form>
   );
-};
+}
+export default Forms;

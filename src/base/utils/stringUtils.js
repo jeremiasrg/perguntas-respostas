@@ -1,6 +1,3 @@
-import { get, post, put, remove } from "../http";
-import * as TokenUtils from "./tokenUtils";
-
 export function removePontosTracoCPF(cpf) {
   let cpfSemPonto = cpf.replaceAll(".", "");
   let cpfSemTraco = cpfSemPonto.replaceAll("-", "");
@@ -54,13 +51,15 @@ export function converteNumeroEmLetra(numero) {
       return "M";
     case 14:
       return "N";
+
+    default:
   }
 }
 
 export function generateGuid() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
+      v = c === "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }

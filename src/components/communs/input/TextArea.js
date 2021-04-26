@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Col } from "react-bootstrap";
 
-export default (props) => {
+function TextArea(props) {
   const [state, setState] = useState(props.value);
 
   useEffect(() => {
@@ -38,4 +38,5 @@ export default (props) => {
       )}
     </Form.Group>
   );
-};
+}
+export default TextArea;

@@ -1,5 +1,5 @@
 export async function init(operacao) {
-  let rt = null;
+  // let rt = null;
   switch (
     operacao
     // case "operations.getAssociacao":

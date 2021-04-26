@@ -1,16 +1,16 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/home.css";
 import * as FaIcons from "react-icons/fa";
-import { Button, Accordion, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Accordion, Card } from "react-bootstrap";
 import Header from "../components/Header";
 
 import img1 from "../assets/img/app-screenshots/1.png";
 import img2 from "../assets/img/app-screenshots/2.png";
 import img3 from "../assets/img/app-screenshots/3.png";
 
-export default (props) => {
+function Home(props) {
   const [openPlayer_1, setOpenPlayer_1] = useState(false);
   const [currentActiveKey, setCurrentActiveKey] = useState("0");
 
@@ -26,9 +26,7 @@ export default (props) => {
     <div>
       {/* Navbar start */}
       <Header />
-
       {/* Navbar end */}
-
       {/* Home section start */}
       <section class="home d-flex align-items-center">
         <div class="effect-wrap">
@@ -47,7 +45,7 @@ export default (props) => {
                   tempo, nota e histórico de tentativa.
                 </p>
                 <div class="home-btn">
-                  <a href="#" class="btn btn-1">
+                  <a href="#d" class="btn btn-1">
                     download app
                   </a>
                   <button
@@ -73,7 +71,6 @@ export default (props) => {
         </div>
       </section>
       {/* Home section end */}
-
       {/* Features section start */}
       <section class="features section-padding">
         <div class="container">
@@ -123,9 +120,7 @@ export default (props) => {
           </div>
         </div>
       </section>
-
       {/* Features section end */}
-
       {/* Fun facts section section start */}
       <section class="fun-facts section-padding">
         <div class="container">
@@ -179,8 +174,8 @@ export default (props) => {
         </div>
       </section>
       {/* Fun facts  section end */}
-
       {/* Video popup start */}
+
       <div class class={openPlayer_1 ? "video-popup open" : "video-popup"}>
         <div class="video-popup-inner">
           <div class="video-popup-close">
@@ -203,7 +198,6 @@ export default (props) => {
       </div>
       {/* Video popup end */}
       {/* App screenshots Section start */}
-
       <section class="fun-facts section-padding">
         <div class="container">
           <div class="row justify-content-center">
@@ -355,10 +349,8 @@ export default (props) => {
           </div>
         </div>
       </section>
-
       {/* Faq  Section end */}
       {/* Footer  Section start */}
-
       <footer class="footer section-padding">
         <div class="container">
           <div class="row">
@@ -375,16 +367,16 @@ export default (props) => {
                 <h3>Company</h3>
                 <ul>
                   <li>
-                    <a href="#">privacy policy</a>
+                    <a href="#p">privacy policy</a>
                   </li>
                   <li>
-                    <a href="#">terms & condition</a>
+                    <a href="#p">terms & condition</a>
                   </li>
                   <li>
-                    <a href="#">latest blogs</a>
+                    <a href="#p">latest blogs</a>
                   </li>
                   <li>
-                    <a href="#">app services</a>
+                    <a href="#p">app services</a>
                   </li>
                 </ul>
               </div>
@@ -394,16 +386,16 @@ export default (props) => {
                 <h3>quick links</h3>
                 <ul>
                   <li>
-                    <a href="#">privacy policy</a>
+                    <a href="#p">privacy policy</a>
                   </li>
                   <li>
-                    <a href="#">terms & condition</a>
+                    <a href="#p">terms & condition</a>
                   </li>
                   <li>
-                    <a href="#">latest blogs</a>
+                    <a href="#p">latest blogs</a>
                   </li>
                   <li>
-                    <a href="#">app services</a>
+                    <a href="#p">app services</a>
                   </li>
                 </ul>
               </div>
@@ -413,16 +405,16 @@ export default (props) => {
                 <h3>social pages</h3>
                 <ul>
                   <li>
-                    <a href="#">privacy policy</a>
+                    <a href="#p">privacy policy</a>
                   </li>
                   <li>
-                    <a href="#">terms & condition</a>
+                    <a href="#p">terms & condition</a>
                   </li>
                   <li>
-                    <a href="#">latest blogs</a>
+                    <a href="#p">latest blogs</a>
                   </li>
                   <li>
-                    <a href="#">app services</a>
+                    <a href="#p">app services</a>
                   </li>
                 </ul>
               </div>
@@ -435,12 +427,10 @@ export default (props) => {
           </div>
         </div>
       </footer>
-
       {/* Footer  Section end */}
-
       {/* Toggle theme start */}
-
       {/* Toggle theme end */}
     </div>
   );
-};
+}
+export default Home;

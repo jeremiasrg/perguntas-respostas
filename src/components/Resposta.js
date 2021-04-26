@@ -7,7 +7,7 @@ import RadioButton from "../components/communs/input/RadioButton";
 
 import * as StringUtils from "../base/utils/stringUtils";
 
-export default (props) => {
+function Resposta(props) {
   const [texto, setTexto] = useState();
   const [correct, setCorrect] = useState();
 
@@ -67,4 +67,5 @@ export default (props) => {
       </div>
     </Col>
   );
-};
+}
+export default Resposta;

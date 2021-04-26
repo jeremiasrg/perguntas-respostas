@@ -4,14 +4,14 @@ import { Col, Button } from "react-bootstrap";
 import TextArea from "../components/communs/input/TextArea";
 import CheckBox from "../components/communs/input/CheckBox";
 
-export default (props) => {
+function Pergunta(props) {
   const [texto, setTexto] = useState("");
   const [multiple, setMultiple] = useState();
 
   useEffect(() => {
     setTexto(props.texto);
     setMultiple(props.multiplaEscolha);
-  }, [props.texto]);
+  }, [props.multiplaEscolha, props.texto]);
 
   return (
     <Col md="12" id={"Q" + (props.index + 1)}>
@@ -58,4 +58,5 @@ export default (props) => {
       </div>
     </Col>
   );
-};
+}
+export default Pergunta;

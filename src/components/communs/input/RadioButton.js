@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Form, Col } from "react-bootstrap";
 // import { GlobalContext } from "../../../providers/global";
 
-export default (props) => {
-  const [state, setState] = useState(false);
+function RadioButton(props) {
+  const [setState] = useState(false);
 
   // const { setGlobal } = useContext(GlobalContext);
 
@@ -41,4 +41,5 @@ export default (props) => {
       )}
     </Form.Group>
   );
-};
+}
+export default RadioButton;

@@ -50,13 +50,13 @@ export function maskTelefone(e) {
   value = value.replace(/^(\d)/, "+$1");
   value = value.replace(/(.{3})(\d)/, "$1($2");
   value = value.replace(/(.{6})(\d)/, "$1)$2");
-  if (value.length == 12) {
+  if (value.length === 12) {
     value = value.replace(/(.{1})$/, "-$1");
-  } else if (value.length == 13) {
+  } else if (value.length === 13) {
     value = value.replace(/(.{2})$/, "-$1");
-  } else if (value.length == 14) {
+  } else if (value.length === 14) {
     value = value.replace(/(.{3})$/, "-$1");
-  } else if (value.length == 15) {
+  } else if (value.length === 15) {
     value = value.replace(/(.{4})$/, "-$1");
   } else if (value.length > 15) {
     value = value.replace(/(.{4})$/, "-$1");

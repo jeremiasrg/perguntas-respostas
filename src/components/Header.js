@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default (props) => {
+function Header(props) {
   const [navbarShrink, setNavbarShrink] = useState(false);
   const [navbarShowLinks, setNavbarShowLinks] = useState(false);
 
@@ -30,7 +30,7 @@ export default (props) => {
     >
       <div class="container">
         {/* <!-- Brand --> */}
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#ABC">
           XPTO
         </a>
 
@@ -63,12 +63,12 @@ export default (props) => {
               </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#func">
                 Funcionalidades
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#telas">
                 Telas
               </a>
             </li>
@@ -78,7 +78,7 @@ export default (props) => {
               </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#contato">
                 Contato
               </a>
             </li>
@@ -87,4 +87,5 @@ export default (props) => {
       </div>
     </nav>
   );
-};
+}
+export default Header;

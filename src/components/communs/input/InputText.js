@@ -10,7 +10,7 @@ import {
   maskValidadeCartao,
 } from "../../../base/utils/masks";
 
-export default (props) => {
+function InputText(props) {
   const [state, setState] = useState(props.value);
   const [isInvalid, setIsInvalid] = useState(props.isInvalid);
 
@@ -19,10 +19,13 @@ export default (props) => {
     setIsInvalid(props.isInvalid);
   }, [props.value, props.isInvalid]);
 
-  const handleKeyup = useCallback((e) => {
-    defineMascara(props, e);
-    setState(e.currentTarget.value);
-  }, []);
+  const handleKeyup = useCallback(
+    (e) => {
+      defineMascara(props, e);
+      setState(e.currentTarget.value);
+    },
+    [props]
+  );
 
   function defineMascara(props, e) {
     if (typeof props.mask != "undefined") {
@@ -41,6 +44,7 @@ export default (props) => {
           return maskCartaoCredito(e);
         case "validadecartao":
           return maskValidadeCartao(e);
+        default:
       }
     }
   }
@@ -114,4 +118,5 @@ export default (props) => {
       )}
     </Form.Group>
   );
-};
+}
+export default InputText;

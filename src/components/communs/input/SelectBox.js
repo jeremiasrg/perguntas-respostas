@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Col } from "react-bootstrap";
 import * as operations from "../operations.js";
 // import { GlobalContext } from "../../../providers/global";
 
-export default (props) => {
+function SelectBox(props) {
   const [state, setState] = useState(props.value);
   const [options, setOptions] = useState();
 
@@ -16,7 +16,7 @@ export default (props) => {
       // setGlobal({ isLoading: false });
     }
     callAPI();
-  }, []);
+  }, [props]);
 
   useEffect(() => {
     setState(props.value);
@@ -89,4 +89,5 @@ export default (props) => {
       )}
     </Form.Group>
   );
-};
+}
+export default SelectBox;

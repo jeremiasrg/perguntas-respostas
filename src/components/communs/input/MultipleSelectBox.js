@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Col } from "react-bootstrap";
 import * as operations from "../operations.js";
 // import { GlobalContext } from "../../../providers/global";
 
-export default (props) => {
+function MultipleSelectBox(props) {
   const [state, setState] = useState(props.value);
   const [options, setOptions] = useState();
 
@@ -16,7 +16,7 @@ export default (props) => {
       // setGlobal({ isLoading: false });
     }
     callAPI();
-  }, []);
+  }, [props]);
 
   const handleMultSelect = (e) => {
     const options = e.target.options;
@@ -79,4 +79,5 @@ export default (props) => {
       )}
     </Form.Group>
   );
-};
+}
+export default MultipleSelectBox;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import { Form, Col } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import pt from "date-fns/locale/pt";

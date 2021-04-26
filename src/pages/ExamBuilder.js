@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import Form from "../components/communs/Form";
-import { Col, Container, Row, Modal, Button, Image } from "react-bootstrap";
+import Forms from "../components/communs/Forms";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import InputText from "../components/communs/input/InputText";
-import InputFile from "../components/communs/input/InputFile";
 import { Base64 } from "../base/utils/Base64";
 
 import Pergunta from "../components/Pergunta";
@@ -11,13 +10,12 @@ import Resposta from "../components/Resposta";
 
 import Header from "../components/Header";
 
-import xml2js from "xml2js";
+// import xml2js from "xml2js";
 
-export default (props) => {
+function ExamBuilder(props) {
   const [nome, setNome] = useState();
   const [perguntas, setPerguntas] = useState([]);
   const [size, setSize] = useState(0);
-  const [xml, setXml] = useState();
   const [countSizeQuestions, setCountSizeQuestions] = useState(0);
 
   const auxPerguntas = [...perguntas];
@@ -80,7 +78,7 @@ export default (props) => {
 
   function resetRespostas(i) {
     auxPerguntas[i].answers.map((resposta, index) => {
-      resposta.correct = false;
+      return (resposta.correct = false);
     });
     console.log("Perguntas resetadas");
     console.log(auxPerguntas);
@@ -145,43 +143,43 @@ export default (props) => {
     ));
   };
 
-  const carregaXML = (xml) => {
-    let parser = new xml2js.Parser();
+  // const carregaXML = (xml) => {
+  //   let parser = new xml2js.Parser();
 
-    // let cleanedString = value.replace("\ufeff", "");
+  //   // let cleanedString = value.replace("\ufeff", "");
 
-    parser
-      .parseStringPromise(xml)
-      .then(function (result) {
-        console.log(result);
+  //   parser
+  //     .parseStringPromise(xml)
+  //     .then(function (result) {
+  //       console.log(result);
 
-        setNome(result.Test.$.title);
-        result.Test.Questions[0].Question.map((pergunta, i) => {
-          //console.log(pergunta);
-          let pTexto = pergunta.$.text;
-          let respostas = [];
-          let contCorrect = 0;
-          pergunta.Answers[0].Answer.map((resposta, i2) => {
-            console.log(resposta.$.correct);
+  //       setNome(result.Test.$.title);
+  //       result.Test.Questions[0].Question.map((pergunta, i) => {
+  //         //console.log(pergunta);
+  //         let pTexto = pergunta.$.text;
+  //         let respostas = [];
+  //         let contCorrect = 0;
+  //         pergunta.Answers[0].Answer.map((resposta, i2) => {
+  //           console.log(resposta.$.correct);
 
-            if (resposta.$.correct === "true") {
-              contCorrect = contCorrect + 1;
-            }
+  //           if (resposta.$.correct === "true") {
+  //             contCorrect = contCorrect + 1;
+  //           }
 
-            respostas.push({
-              text: resposta.$.text,
-              correct: resposta.$.correct === "true",
-            });
-          });
-          console.log(contCorrect);
-          addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
-        });
-      })
-      .catch(function (err) {
-        // Failed
-        console.log(err);
-      });
-  };
+  //           respostas.push({
+  //             text: resposta.$.text,
+  //             correct: resposta.$.correct === "true",
+  //           });
+  //         });
+  //         console.log(contCorrect);
+  //         addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+  //       });
+  //     })
+  //     .catch(function (err) {
+  //       // Failed
+  //       console.log(err);
+  //     });
+  // };
 
   function onSave() {
     setSize(size + 1);
@@ -225,7 +223,7 @@ export default (props) => {
           </div>
           <div class="row">
             <div class="exam-builder-form">
-              <Form
+              <Forms
                 showSaveButton={perguntas.length > 0}
                 showCancelButton={false}
                 onSave={onSave}
@@ -284,7 +282,7 @@ export default (props) => {
                   </Row>
                   {escrevePerguntas()}
                 </Container>
-              </Form>
+              </Forms>
             </div>
           </div>
         </div>
@@ -322,4 +320,5 @@ export default (props) => {
       </section>
     </>
   );
-};
+}
+export default ExamBuilder;

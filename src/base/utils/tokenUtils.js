@@ -21,19 +21,19 @@ export function storeFotoPerfil(foto) {
   }
 }
 
-function openTokenUsingJwt() {
-  if (
-    getAppToken() !== undefined &&
-    getAppToken() !== null &&
-    getAppToken() !== ""
-  ) {
-    // let tokenAberto = jwt_decode(getAppToken());
-    // return tokenAberto;
-    return null;
-  } else {
-    return undefined;
-  }
-}
+// function openTokenUsingJwt() {
+//   if (
+//     getAppToken() !== undefined &&
+//     getAppToken() !== null &&
+//     getAppToken() !== ""
+//   ) {
+//     // let tokenAberto = jwt_decode(getAppToken());
+//     // return tokenAberto;
+//     return null;
+//   } else {
+//     return undefined;
+//   }
+// }
 
 export function getIdUserFromAppToken() {
   // let tokenAberto = openTokenUsingJwt();

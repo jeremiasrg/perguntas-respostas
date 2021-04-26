@@ -347,7 +347,7 @@ ul {
   /* Adicionados por minha conta */
   /* float: left; */
   /* width: 28%; */
-  height: 280px;
+  height: 330px;
 }
 
 .features .feature-item::before,
@@ -431,7 +431,7 @@ ul {
   margin: 0 0 20px;
   color: var(--black-900);
   font-weight: 500;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .features .feature-item p {
   font-size: 16px;
@@ -563,7 +563,7 @@ ul {
   font-size: 22px;
   font-weight: 500;
   color: var(--black-900);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .how-it-works-item p {
   font-size: 16px;

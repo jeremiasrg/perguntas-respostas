@@ -63,7 +63,7 @@ function Header(props) {
               </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#func">
+              <a class="nav-link" href="/#features">
                 Funcionalidades
               </a>
             </li>

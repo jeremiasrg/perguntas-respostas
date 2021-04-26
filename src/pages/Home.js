@@ -44,6 +44,9 @@ function Home(props) {
                   de prova igual a uma situação real. Com contabilidade de
                   tempo, nota e histórico de tentativa.
                 </p>
+                <p style={{ marginTop: "10px" }}>
+                  Indicado para certificações em TI e provas de concursos.
+                </p>
                 <div class="home-btn">
                   <a href="#d" class="btn btn-1">
                     download app
@@ -72,13 +75,13 @@ function Home(props) {
       </section>
       {/* Home section end */}
       {/* Features section start */}
-      <section class="features section-padding">
+      <section id="features" class="features section-padding">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Funcionalidades
+                  Principais <span>Funcionalidades</span>
                   {/* <span>features</span> */}
                 </h2>
               </div>
@@ -90,30 +93,29 @@ function Home(props) {
                 <div class="icon">
                   <FaIcons.FaCode />
                 </div>
-                <h3>Histórico</h3>
+                <h3>Crie e edite qualquer simulado</h3>
                 <p>
-                  Possui historico de tentativas. Você poderá acompanhar sua
-                  evoluçao nos estudos
+                  Faça e modifique seu simulado configurando perguntas e
+                  respostas da forma que quiser.
                 </p>
               </div>
               <div class="feature-item col-md-3">
                 <div class="icon">
                   <FaIcons.FaEdit />
                 </div>
-                <h3>Auto install</h3>
+                <h3>Histórico de performance</h3>
                 <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                  ipuluim{" "}
+                  Acompanhe a evolução de sua performance em cada tentativa.
                 </p>
               </div>
               <div class="feature-item col-md-3">
                 <div class="icon">
                   <FaIcons.FaPaintBrush />
                 </div>
-                <h3>Pixel perfect design</h3>
+                <h3>Embaralhar perguntas e respostas</h3>
                 <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                  ipuluim{" "}
+                  Embaralhe perguntas e respostas para ter uma experiência mais
+                  desafiadora.
                 </p>
               </div>
             </div>
@@ -188,7 +190,7 @@ function Home(props) {
           <div class="iframe-box">
             <iframe
               id="player-1"
-              src="https://www.youtube.com/embed/an0_u96ac8A"
+              src="https://www.youtube.com/embed/aBCkkWJfhY8"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -235,40 +237,37 @@ function Home(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  how it <span>works</span>
+                  Como <span>começar</span> ?
                 </h2>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
               <div class="how-it-works-item line-right">
                 <div class="step">1</div>
-                <h3>download</h3>
-                <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                </p>
+                <h3>Crie o simulado</h3>
+                <p>Clique aqui e defina suas perguntas e respostas.</p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
               <div class="how-it-works-item line-right">
                 <div class="step">2</div>
-                <h3>create profile</h3>
+                <h3>Baixe o arquivo ".jr"</h3>
                 <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
+                  Após terminar de criar o simulado, clique em Download para
+                  baixar o arquivo ".jr"
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="how-it-works-item line-right">
+            <div class="col-lg-4 col-md-6">
+              <div class="how-it-works-item">
                 <div class="step">3</div>
-                <h3>search product</h3>
-                <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                </p>
+                <h3>Importe o arquivo no app</h3>
+                <p>Importe o arquivo ".jr" no app e de o play.</p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            {/* <div class="col-lg-3 col-md-6">
               <div class="how-it-works-item ">
                 <div class="step">4</div>
                 <h3>order</h3>
@@ -276,7 +275,7 @@ function Home(props) {
                   Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

@@ -46,7 +46,7 @@ body {
   outline: none !important;
 }
 img {
-  max-width: 100%;
+  max-width: 330px;
   vertical-align: middle;
 }
 ul {
@@ -242,8 +242,8 @@ ul {
 }
 
 .home-img img {
-  max-width: 250px;
-  width: 100%;
+  max-width: 330px;
+  /* width: 100%; */
   box-shadow: var(--shadow-black-100);
   border-radius: 32px;
   animation: bounceTop_01 3s ease infinite;
@@ -517,8 +517,8 @@ ul {
 }
 
 .screenshot-item img {
-  width: 100%;
-  max-width: 250px;
+  /* width: 100%; */
+  max-width: 330px;
   display: block;
   margin: auto;
   padding: 5px;

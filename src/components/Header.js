@@ -30,8 +30,8 @@ function Header(props) {
     >
       <div class="container">
         {/* <!-- Brand --> */}
-        <a class="navbar-brand" href="#ABC">
-          XPTO
+        <a class="navbar-brand" href="/">
+          JR Simulator
         </a>
 
         {/* <!-- Toggler/collapsibe Button --> */}

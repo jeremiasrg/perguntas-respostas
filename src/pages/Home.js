@@ -3,24 +3,27 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/home.css";
 import * as FaIcons from "react-icons/fa";
-import { Accordion, Card } from "react-bootstrap";
+// import { Accordion, Card } from "react-bootstrap";
 import Header from "../components/Header";
 
 import img1 from "../assets/img/app-screenshots/1.png";
 import img2 from "../assets/img/app-screenshots/2.png";
 import img3 from "../assets/img/app-screenshots/3.png";
+import img4 from "../assets/img/app-screenshots/4.png";
+import img5 from "../assets/img/app-screenshots/5.png";
+import img6 from "../assets/img/app-screenshots/6.png";
 
 function Home(props) {
   const [openPlayer_1, setOpenPlayer_1] = useState(false);
-  const [currentActiveKey, setCurrentActiveKey] = useState("0");
+  // const [currentActiveKey, setCurrentActiveKey] = useState("0");
 
-  function toggleCurrentActiveKey(number) {
-    if (number === currentActiveKey) {
-      setCurrentActiveKey(undefined);
-    } else {
-      setCurrentActiveKey(number);
-    }
-  }
+  // function toggleCurrentActiveKey(number) {
+  //   if (number === currentActiveKey) {
+  //     setCurrentActiveKey(undefined);
+  //   } else {
+  //     setCurrentActiveKey(number);
+  //   }
+  // }
 
   return (
     <div>
@@ -40,9 +43,10 @@ function Home(props) {
               <div class="home-text">
                 <h1>Crie seus simulados e estude pelo celular onde quiser.</h1>
                 <p>
-                  O App XPTO permite que voce tenha funcionalidades de simulação
-                  de prova igual a uma situação real. Com contabilidade de
-                  tempo, nota e histórico de tentativa.
+                  A plataforma JR Simulator permite que voce tenha
+                  funcionalidades de simulação de prova igual a uma situação
+                  real. Com contabilidade de tempo, nota e histórico de
+                  tentativa.
                 </p>
                 <p style={{ marginTop: "10px" }}>
                   Indicado para certificações em TI e provas de concursos.
@@ -124,7 +128,7 @@ function Home(props) {
       </section>
       {/* Features section end */}
       {/* Fun facts section section start */}
-      <section class="fun-facts section-padding">
+      {/* <section class="fun-facts section-padding">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-5 d-flex align-items-center justify-content-center">
@@ -174,7 +178,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Fun facts  section end */}
       {/* Video popup start */}
 
@@ -223,7 +227,13 @@ function Home(props) {
                 <img src={img3} alt="app"></img>
               </div>
               <div class="screenshot-item">
-                <img src={img3} alt="app"></img>
+                <img src={img4} alt="app"></img>
+              </div>
+              <div class="screenshot-item">
+                <img src={img5} alt="app"></img>
+              </div>
+              <div class="screenshot-item">
+                <img src={img6} alt="app"></img>
               </div>
             </div>
           </div>
@@ -281,7 +291,7 @@ function Home(props) {
       </section>
       {/* How it works  Section end */}
       {/* Faq  Section start */}
-      <section class="faq section-padding">
+      {/* <section class="faq section-padding">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -347,7 +357,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Faq  Section end */}
       {/* Footer  Section start */}
       <footer class="footer section-padding">
@@ -421,7 +431,7 @@ function Home(props) {
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <p class="copyright-text">&copy;2021 @ The XPTO</p>
+              <p class="copyright-text">&copy;2021 @ JR Simulator</p>
             </div>
           </div>
         </div>

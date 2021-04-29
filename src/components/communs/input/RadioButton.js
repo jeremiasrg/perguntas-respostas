@@ -3,7 +3,8 @@ import { Form, Col } from "react-bootstrap";
 // import { GlobalContext } from "../../../providers/global";
 
 function RadioButton(props) {
-  const [setState] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [state, setState] = useState(false);
 
   // const { setGlobal } = useContext(GlobalContext);
 

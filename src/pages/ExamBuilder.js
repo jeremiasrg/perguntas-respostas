@@ -9,6 +9,7 @@ import Pergunta from "../components/Pergunta";
 import Resposta from "../components/Resposta";
 
 import Header from "../components/Header";
+import * as cypherUtils from "../base/utils/cypherUtils";
 
 // import xml2js from "xml2js";
 
@@ -184,18 +185,19 @@ function ExamBuilder(props) {
   function onSave() {
     setSize(size + 1);
     let finalContent = { title: nome, questions: perguntas };
-    console.log("Final content");
-    console.log(finalContent);
+    // console.log("Final content");
+    // console.log(finalContent);
 
     let texto = JSON.stringify(finalContent);
-    console.log("Texto : " + texto);
+    // console.log("Texto : " + texto);
 
     let rt = Base64.btoa(texto);
-    console.log(rt);
-    let final = Base64.atob(rt);
-    console.log("final base64: " + final);
+    // console.log(rt);
+    // let final = Base64.atob(rt);
+    let encrypted = cypherUtils.encrypt(rt);
+    // console.log("final: " + encrypted);
 
-    download(rt);
+    download(encrypted);
   }
 
   function download(output) {
@@ -238,8 +240,8 @@ function ExamBuilder(props) {
                         acabar, clique no botão download para baixar o simulado.
                       </p>
                       <p>
-                        Pronto, agora é só carregar o simulado no app XPTO e
-                        começar a estudar.
+                        Pronto, agora é só carregar o simulado no app JR
+                        Simulator e começar a estudar.
                       </p>
                     </Col>
                     {/* <Col md="6">

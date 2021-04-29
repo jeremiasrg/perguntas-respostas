@@ -160,7 +160,7 @@ ul {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--main-color);
   padding: 10px 0;
-  height: 45px;
+  height: 60px;
 }
 .navbar > .container {
   padding: 0, 15px;
@@ -912,5 +912,13 @@ ul {
   }
   .section-title h2 {
     font-size: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .navbar-toggler {
+    margin-right: 20px;
+  }
+  .navbar-brand {
+    margin-left: 10px;
   }
 }

@@ -33,9 +33,9 @@ function Home(props) {
       {/* Home section start */}
       <section class="home d-flex align-items-center">
         <div class="effect-wrap">
-          <FaIcons.FaPlus className="effect effect-1" />
-          <FaIcons.FaPlus className="effect effect-2" />
-          <FaIcons.FaCircleNotch className="effect effect-3" />
+          <FaIcons.FaCheckCircle className="effect effect-1" />
+          <FaIcons.FaCheckSquare className="effect effect-2" />
+          <FaIcons.FaCheckSquare className="effect effect-3" />
         </div>
         <div class="container">
           <div class="row align-items-center">
@@ -65,7 +65,7 @@ function Home(props) {
                     />
                     download app
                   </a>
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => {
                       setOpenPlayer_1(true);
@@ -74,7 +74,7 @@ function Home(props) {
                     class="btn btn-1 video-play-btn"
                   >
                     <FaIcons.FaPlay />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

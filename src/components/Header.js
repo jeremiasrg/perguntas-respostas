@@ -83,11 +83,11 @@ function Header(props) {
               </Link>
             </li>
 
-            <li class="nav-item">
+            {/* <li class="nav-item">
               <a class="nav-link" href="#contato">
                 Contato
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

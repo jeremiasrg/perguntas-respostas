@@ -58,9 +58,9 @@ function Header(props) {
         >
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <Link to="/" className="nav-link">
+              <a class="nav-link" href="/">
                 Início
-              </Link>
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#features">
@@ -68,8 +68,13 @@ function Header(props) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#telas">
+              <a class="nav-link" href="/#telas">
                 Telas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#howitworks">
+                Como começar
               </a>
             </li>
             <li class="nav-item">
@@ -77,6 +82,7 @@ function Header(props) {
                 Crie um simulado
               </Link>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#contato">
                 Contato

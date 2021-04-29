@@ -242,7 +242,7 @@ ul {
 }
 
 .home-img img {
-  max-width: 330px;
+  max-width: 360px;
   /* width: 100%; */
   box-shadow: var(--shadow-black-100);
   border-radius: 32px;
@@ -509,16 +509,17 @@ ul {
 
 /* App Screenshots section */
 
-.screenshots-carousel {
-  display: inline-flex;
+.screenshots .section-title h2 {
+  text-align: center;
 }
+
 .screenshot-item {
   margin: 15px;
 }
 
 .screenshot-item img {
   /* width: 100%; */
-  max-width: 330px;
+  max-width: 350px;
   display: block;
   margin: auto;
   padding: 5px;
@@ -627,7 +628,14 @@ ul {
 
 .footer {
   background-color: var(--main-color);
-  padding: 50px 0 0;
+  padding: 10px 0 0;
+}
+.footer .social a {
+  color: #000000;
+}
+.footer .social {
+  text-align: right;
+  font-size: 25px;
 }
 .footer-col h3 {
   font-size: 18px;
@@ -666,12 +674,12 @@ ul {
 }
 
 .footer .copyright-text {
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 300;
-  margin: 50px 0 0;
+  margin: 10px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 

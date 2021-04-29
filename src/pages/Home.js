@@ -41,18 +41,28 @@ function Home(props) {
           <div class="row align-items-center">
             <div class="col-md-7 ">
               <div class="home-text">
-                <h1>Crie seus simulados e estude pelo celular onde quiser.</h1>
+                <h1>
+                  Crie seus simulados e estude pelo celular de onde estiver.
+                </h1>
                 <p>
-                  A plataforma JR Simulator permite que voce tenha
-                  funcionalidades de simulação de prova igual a uma situação
-                  real. Com contabilidade de tempo, nota e histórico de
+                  A plataforma JR Simulator permite que você tenha
+                  funcionalidades de simulação de prova igual a uma prova de
+                  certificação. Com contabilidade de tempo, nota e histórico de
                   tentativa.
                 </p>
                 <p style={{ marginTop: "10px" }}>
                   Indicado para certificações em TI e provas de concursos.
                 </p>
                 <div class="home-btn">
-                  <a href="#d" class="btn btn-1">
+                  <a
+                    href="https://play.google.com/store?hl=pt_BR&gl=US"
+                    class="btn btn-1"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaIcons.FaGooglePlay
+                      style={{ fontSize: "30px", marginRight: "10px" }}
+                    />
                     download app
                   </a>
                   <button
@@ -70,8 +80,8 @@ function Home(props) {
             </div>
             <div class="col-md-5 text-center">
               <div class="home-img">
-                <div class="circle"></div>
-                <img src={img1} alt="app"></img>
+                {/* <div class="circle"></div> */}
+                <img src={img4} alt="app"></img>
               </div>
             </div>
           </div>
@@ -204,44 +214,42 @@ function Home(props) {
       </div>
       {/* Video popup end */}
       {/* App screenshots Section start */}
-      <section class="fun-facts section-padding">
+      <section id="telas" class="screenshots section-padding">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  app <span>screenshots</span>
+                  Telas do <span>Aplicativo</span>
                 </h2>
               </div>
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="screenshots-carousel">
-              <div class="screenshot-item">
-                <img src={img1} alt="app"></img>
-              </div>
-              <div class="screenshot-item">
-                <img src={img2} alt="app"></img>
-              </div>
-              <div class="screenshot-item">
-                <img src={img3} alt="app"></img>
-              </div>
-              <div class="screenshot-item">
-                <img src={img4} alt="app"></img>
-              </div>
-              <div class="screenshot-item">
-                <img src={img5} alt="app"></img>
-              </div>
-              <div class="screenshot-item">
-                <img src={img6} alt="app"></img>
-              </div>
+            <div class="screenshot-item">
+              <img src={img1} alt="app"></img>
+            </div>
+            <div class="screenshot-item">
+              <img src={img2} alt="app"></img>
+            </div>
+            <div class="screenshot-item">
+              <img src={img3} alt="app"></img>
+            </div>
+            <div class="screenshot-item">
+              <img src={img4} alt="app"></img>
+            </div>
+            <div class="screenshot-item">
+              <img src={img5} alt="app"></img>
+            </div>
+            <div class="screenshot-item">
+              <img src={img6} alt="app"></img>
             </div>
           </div>
         </div>
       </section>
       {/* App screenshots Section end */}
       {/* How it works  Section start */}
-      <section class="how-it-works section-padding">
+      <section id="howitworks" class="how-it-works section-padding">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -257,7 +265,10 @@ function Home(props) {
               <div class="how-it-works-item line-right">
                 <div class="step">1</div>
                 <h3>Crie o simulado</h3>
-                <p>Clique aqui e defina suas perguntas e respostas.</p>
+                <p>
+                  Clique <a href="/examBuilder">aqui</a> e defina suas perguntas
+                  e respostas.
+                </p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -363,70 +374,14 @@ function Home(props) {
       <footer class="footer section-padding">
         <div class="container">
           <div class="row">
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-col">
-                <h3>About us</h3>
-                <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-col">
-                <h3>Company</h3>
-                <ul>
-                  <li>
-                    <a href="#p">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="#p">terms & condition</a>
-                  </li>
-                  <li>
-                    <a href="#p">latest blogs</a>
-                  </li>
-                  <li>
-                    <a href="#p">app services</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-col">
-                <h3>quick links</h3>
-                <ul>
-                  <li>
-                    <a href="#p">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="#p">terms & condition</a>
-                  </li>
-                  <li>
-                    <a href="#p">latest blogs</a>
-                  </li>
-                  <li>
-                    <a href="#p">app services</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="footer-col">
-                <h3>social pages</h3>
-                <ul>
-                  <li>
-                    <a href="#p">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="#p">terms & condition</a>
-                  </li>
-                  <li>
-                    <a href="#p">latest blogs</a>
-                  </li>
-                  <li>
-                    <a href="#p">app services</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="col-lg-12 social">
+              <a
+                href="https://www.facebook.com/JR-Simulator-105038411741180"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FaIcons.FaFacebook />
+              </a>
             </div>
           </div>
           <div class="row">

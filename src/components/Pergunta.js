@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Col, Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import TextArea from "../components/communs/input/TextArea";
 import CheckBox from "../components/communs/input/CheckBox";
 import * as FaIcons from "react-icons/fa";

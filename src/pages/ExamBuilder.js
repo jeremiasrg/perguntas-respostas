@@ -311,7 +311,7 @@ function ExamBuilder(props) {
               addPergunta();
             }}
           >
-            + Pergunta
+            +Pergunta
           </Button>
         </div>
       </section>

@@ -33,7 +33,7 @@ function Home(props) {
       {/* Home section start */}
       <section class="home d-flex align-items-center">
         <div class="effect-wrap">
-          <FaIcons.FaCheckCircle className="effect effect-1" />
+          <FaIcons.FaCheckSquare className="effect effect-1" />
           <FaIcons.FaCheckSquare className="effect effect-2" />
           <FaIcons.FaCheckSquare className="effect effect-3" />
         </div>

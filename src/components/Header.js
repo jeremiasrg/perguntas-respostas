@@ -11,7 +11,7 @@ function Header(props) {
   };
 
   function scrollFunction() {
-    if (document.documentElement.scrollTop > 90) {
+    if (document.documentElement.scrollTop > 30) {
       setNavbarShrink(true);
       console.log("true");
     } else {

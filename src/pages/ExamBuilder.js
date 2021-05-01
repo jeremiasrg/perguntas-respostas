@@ -10,6 +10,7 @@ import Resposta from "../components/Resposta";
 
 import Header from "../components/Header";
 import * as cypherUtils from "../base/utils/cypherUtils";
+import * as FaIcons from "react-icons/fa";
 
 // import xml2js from "xml2js";
 
@@ -128,16 +129,10 @@ function ExamBuilder(props) {
           ></Resposta>
         ))}
         <Col md="12">
-          <div className="btn-add-resposta">
-            <Button
-              size="sm"
-              variant="secondary"
-              onClick={() => {
+          <div className="btn-add-resposta" onClick={() => {
                 addResposta(index);
-              }}
-            >
-              + Adicionar resposta
-            </Button>
+              }}>
+              <FaIcons.FaPlus ></FaIcons.FaPlus>
           </div>
         </Col>
       </Row>
@@ -229,7 +224,7 @@ function ExamBuilder(props) {
                 showSaveButton={perguntas.length > 0}
                 showCancelButton={false}
                 onSave={onSave}
-                saveLabel="Download"
+                saveLabel="Download '.jr'"
                 mdButtons="12"
               >
                 <Container fluid>

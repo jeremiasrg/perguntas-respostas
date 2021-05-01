@@ -15,42 +15,38 @@ function Pergunta(props) {
   }, [props.multiplaEscolha, props.texto]);
 
   return (
-    <Col md="12" id={"Q" + (props.index + 1)}>
-      <TextArea
-        md="12"
-        label={"Questão " + (props.index + 1) + " "}
-        autoFocus
-        rows="4"
-        value={texto}
-        onChange={(valor) => {
-          setTexto(valor);
-          props.onTextoChange(valor);
-        }}
-        required={true}
-      ></TextArea>
+    <>
 
-      <div
-        style={{
-          position: "absolute",
-          top: "0px",
-          left: "115px",
-          color: "white",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          props.removePergunta(props.index);
-        }}
-      >
-        <FaIcons.FaTimes />
-      </div>
+      <Col md="12" id={"Q" + (props.index + 1)}>
+        <TextArea
+          md="12"
+          label={"Questão " + (props.index + 1) + " "}
+          autoFocus
+          rows="4"
+          value={texto}
+          onChange={(valor) => {
+            setTexto(valor);
+            props.onTextoChange(valor);
+          }}
+          required={true}
+        ></TextArea>
 
-      <div
-        style={{
-          position: "absolute",
-          top: "0px",
-          left: "115px",
-        }}
-      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            right: "20px",
+            color: "white",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            props.removePergunta(props.index);
+          }}
+        >
+          <FaIcons.FaTimes style={{ color: "#ff5252"}} />
+        </div>
+      </Col>
+      <Col md="12" style={{"marginTop": "-15px",}}>
         <CheckBox
           md="auto"
           label="Multipla escolha?"
@@ -60,8 +56,9 @@ function Pergunta(props) {
             props.onMultiplaEscolhaChange(valor);
           }}
         ></CheckBox>
-      </div>
-    </Col>
+      </Col>
+    </>
+
   );
 }
 export default Pergunta;

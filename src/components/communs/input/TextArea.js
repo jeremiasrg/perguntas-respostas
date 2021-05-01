@@ -10,10 +10,11 @@ function TextArea(props) {
 
   return (
     <Form.Group as={Col} md={props.md || "12"}>
-      <Form.Label>
+      {props.showLabel === false ? null : <Form.Label>
         {props.label}
         {props.required ? <span className="requiredLabel">*</span> : null}
-      </Form.Label>
+      </Form.Label>}
+
       <Form.Control
         as="textarea"
         required={props.required}

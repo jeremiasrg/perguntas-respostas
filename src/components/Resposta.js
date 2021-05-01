@@ -6,6 +6,7 @@ import CheckBox from "../components/communs/input/CheckBox";
 import RadioButton from "../components/communs/input/RadioButton";
 
 import * as StringUtils from "../base/utils/stringUtils";
+import * as FaIcons from "react-icons/fa";
 
 function Resposta(props) {
   const [texto, setTexto] = useState();
@@ -45,6 +46,7 @@ function Resposta(props) {
         </div>
         <TextArea
           md="10"
+          showLabel={false}
           value={texto}
           onChange={(valor) => {
             setTexto(valor);
@@ -53,16 +55,10 @@ function Resposta(props) {
           required={true}
           label=" "
         ></TextArea>
-        <div style={{ marginTop: "40px" }}>
-          <Button
-            onClick={() => {
+        <div style={{ marginTop: "20px",cursor: "pointer", }} onClick={() => {
               props.removeResposta(props.indexPergunta, props.index);
-            }}
-            variant="danger"
-            size="sm"
-          >
-            X
-          </Button>
+            }}>
+           <FaIcons.FaTimes style={{ color: "#ff5252"}} />
         </div>
       </div>
     </Col>

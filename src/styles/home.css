@@ -720,7 +720,7 @@ ul {
 
 .exam-builder .letra {
   font-size: 1em;
-  margin-top: 45px;
+  margin-top: 20px;
   display: flex;
 }
 
@@ -730,10 +730,12 @@ ul {
 }
 
 .exam-builder .btn-add-resposta {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 5em;
-  margin-top: 5px;
+  z-index: 999;
+  color: #ffffff;
+    position: absolute;
+    top: -17px;
+    right: 50px;
+    cursor: pointer;
 }
 
 .exam-builder .map-questions .q {

@@ -78,7 +78,7 @@ function Header(props) {
               </a>
             </li>
             <li class="nav-item">
-              <Link to="/examBuilder" className="nav-link">
+              <Link to="/*/examBuilder" className="nav-link">
                 Crie um simulado
               </Link>
             </li>

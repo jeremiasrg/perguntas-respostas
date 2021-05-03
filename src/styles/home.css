@@ -148,7 +148,7 @@ ul {
   font-size: 40px;
   color: var(--black-900);
   font-weight: 700;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   text-align: center;
   margin: 0;
 }

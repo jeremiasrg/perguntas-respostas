@@ -55,7 +55,7 @@ function Home(props) {
                 </p>
                 <div class="home-btn">
                   <a
-                    href="https://play.google.com/store?hl=pt_BR&gl=US"
+                    href="https://play.google.com/store/apps/details?id=br.com.jr.jrsimulator"
                     class="btn btn-1"
                     target="_blank"
                     rel="noreferrer"

@@ -31,6 +31,7 @@ function Header(props) {
       <div class="container">
         {/* <!-- Brand --> */}
         <a class="navbar-brand" href="/">
+          <FaIcons.FaRegCheckSquare />
           JR Simulator
         </a>
 

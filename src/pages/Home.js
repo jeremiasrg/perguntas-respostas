@@ -53,6 +53,15 @@ function Home(props) {
                 <p style={{ marginTop: "10px" }}>
                   Indicado para certificações em TI e provas de concursos.
                 </p>
+                <p style={{ marginTop: "10px" }}>
+                  Veja como começar, clicanco{" "}
+                  <a
+                    style={{ color: "white", fontWeight: "800" }}
+                    href="/#howitworks"
+                  >
+                    aqui
+                  </a>
+                </p>
                 <div class="home-btn">
                   <a
                     href="https://play.google.com/store/apps/details?id=br.com.jr.jrsimulator"
@@ -65,6 +74,7 @@ function Home(props) {
                     />
                     download app
                   </a>
+
                   {/* <button
                     type="button"
                     onClick={() => {
@@ -285,7 +295,7 @@ function Home(props) {
               <div class="how-it-works-item">
                 <div class="step">3</div>
                 <h3>Importe o arquivo no app</h3>
-                <p>Importe o arquivo ".jr" no app e de o play.</p>
+                <p>Importe o arquivo ".jr" no app e dê o play.</p>
               </div>
             </div>
             {/* <div class="col-lg-3 col-md-6">

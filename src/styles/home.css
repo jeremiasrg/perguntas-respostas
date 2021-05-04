@@ -116,8 +116,8 @@ ul {
   z-index: -1;
 }
 .effect-wrap .effect-1 {
-  left: 20%;
-  top: 20%;
+  right: 10%;
+  top: 15%;
   font-size: 20px;
   color: var(--color-2);
   animation: spin_01 5s linear infinite;

@@ -179,9 +179,11 @@ function ExamBuilder(props) {
               text: resposta.$.text,
               correct: resposta.$.correct === "true",
             });
+            return true;
           });
           console.log(contCorrect);
           addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+          return true;
         });
       })
       .catch(function (err) {

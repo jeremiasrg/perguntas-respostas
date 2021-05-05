@@ -278,7 +278,7 @@ function ExamBuilder(props) {
                             o formato e altere as informações que precisar.
                           </p>
                           <p>
-                            2- Garante que o xml esteja válido antes de
+                            2- Garanta que o xml esteja válido antes de
                             importar.
                           </p>
                         </Col>

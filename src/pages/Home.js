@@ -55,10 +55,7 @@ function Home(props) {
                 </p>
                 <p style={{ marginTop: "10px" }}>
                   Veja como começar, clicanco{" "}
-                  <a
-                    style={{ color: "white", fontWeight: "800" }}
-                    href="/#howitworks"
-                  >
+                  <a class="link-white" href="/#howitworks">
                     aqui
                   </a>
                 </p>

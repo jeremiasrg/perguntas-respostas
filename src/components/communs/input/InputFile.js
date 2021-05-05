@@ -3,7 +3,8 @@ import { Form, Col } from "react-bootstrap";
 // import { GlobalContext } from "../../../providers/global";
 
 function InputFile(props) {
-  const [setState] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [state, setState] = useState("");
 
   // const { setGlobal } = useContext(GlobalContext);
 

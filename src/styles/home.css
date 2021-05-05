@@ -772,6 +772,15 @@ ul {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.link-white {
+  color: white;
+  font-weight: 800;
+}
+
+.form-control-file {
+  color: white;
+}
+
 .col,
 .col-1,
 .col-10,

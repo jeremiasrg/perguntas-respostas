@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from "react";
 
 import Forms from "../components/communs/Forms";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Button,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap";
 import InputText from "../components/communs/input/InputText";
+import InputFile from "../components/communs/input/InputFile";
 import { Base64 } from "../base/utils/Base64";
 
 import Pergunta from "../components/Pergunta";
 import Resposta from "../components/Resposta";
 
 import Header from "../components/Header";
+import SampleQuestions from "../assets/sampleQuestions.xml";
 import * as cypherUtils from "../base/utils/cypherUtils";
 import * as FaIcons from "react-icons/fa";
 
-// import xml2js from "xml2js";
+import xml2js from "xml2js";
 
 function ExamBuilder(props) {
   const [nome, setNome] = useState();
   const [perguntas, setPerguntas] = useState([]);
   const [size, setSize] = useState(0);
   const [countSizeQuestions, setCountSizeQuestions] = useState(0);
+  const [xml, setXml] = useState();
 
   const auxPerguntas = [...perguntas];
 
@@ -129,53 +139,56 @@ function ExamBuilder(props) {
           ></Resposta>
         ))}
         <Col md="12">
-          <div className="btn-add-resposta" onClick={() => {
-                addResposta(index);
-              }}>
-              <FaIcons.FaPlus ></FaIcons.FaPlus>
+          <div
+            className="btn-add-resposta"
+            onClick={() => {
+              addResposta(index);
+            }}
+          >
+            <FaIcons.FaPlus></FaIcons.FaPlus>
           </div>
         </Col>
       </Row>
     ));
   };
 
-  // const carregaXML = (xml) => {
-  //   let parser = new xml2js.Parser();
+  const carregaXML = (xml) => {
+    let parser = new xml2js.Parser();
 
-  //   // let cleanedString = value.replace("\ufeff", "");
+    // let cleanedString = value.replace("\ufeff", "");
 
-  //   parser
-  //     .parseStringPromise(xml)
-  //     .then(function (result) {
-  //       console.log(result);
+    parser
+      .parseStringPromise(xml)
+      .then(function (result) {
+        console.log(result);
 
-  //       setNome(result.Test.$.title);
-  //       result.Test.Questions[0].Question.map((pergunta, i) => {
-  //         //console.log(pergunta);
-  //         let pTexto = pergunta.$.text;
-  //         let respostas = [];
-  //         let contCorrect = 0;
-  //         pergunta.Answers[0].Answer.map((resposta, i2) => {
-  //           console.log(resposta.$.correct);
+        setNome(result.Test.$.title);
+        result.Test.Questions[0].Question.map((pergunta, i) => {
+          //console.log(pergunta);
+          let pTexto = pergunta.$.text;
+          let respostas = [];
+          let contCorrect = 0;
+          pergunta.Answers[0].Answer.map((resposta, i2) => {
+            console.log(resposta.$.correct);
 
-  //           if (resposta.$.correct === "true") {
-  //             contCorrect = contCorrect + 1;
-  //           }
+            if (resposta.$.correct === "true") {
+              contCorrect = contCorrect + 1;
+            }
 
-  //           respostas.push({
-  //             text: resposta.$.text,
-  //             correct: resposta.$.correct === "true",
-  //           });
-  //         });
-  //         console.log(contCorrect);
-  //         addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
-  //       });
-  //     })
-  //     .catch(function (err) {
-  //       // Failed
-  //       console.log(err);
-  //     });
-  // };
+            respostas.push({
+              text: resposta.$.text,
+              correct: resposta.$.correct === "true",
+            });
+          });
+          console.log(contCorrect);
+          addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+        });
+      })
+      .catch(function (err) {
+        // Failed
+        console.log(err);
+      });
+  };
 
   function onSave() {
     setSize(size + 1);
@@ -229,40 +242,89 @@ function ExamBuilder(props) {
               >
                 <Container fluid>
                   <Row>
-                    <Col md="12">
-                      <p>
-                        Adicione perguntas e suas possíveis respostas. Quando
-                        acabar, clique no botão download para baixar o simulado.
-                      </p>
-                      <p>
-                        Pronto, agora é só carregar o simulado no app JR
-                        Simulator e começar a estudar.
-                      </p>
-                    </Col>
-                    {/* <Col md="6">
-                      <p style={{ marginTop: "10px" }}>
-                        Crie um novo teste a partir de um arquivo xml:
-                      </p>
-                    </Col>
-                    <Col md="6">
-                      <div
-                        style={{
-                          marginTop: "10px",
-                          position: "relative",
-                          top: "-26px",
-                        }}
+                    {window.location.href.includes("examBuilder?v") ===
+                    false ? (
+                      <Col md="12">
+                        <p>
+                          Adicione perguntas e suas possíveis respostas. Quando
+                          acabar, clique no botão download para baixar o
+                          simulado.
+                        </p>
+                        <p>
+                          Pronto, agora é só carregar o simulado no app JR
+                          Simulator e começar a estudar.
+                        </p>
+                      </Col>
+                    ) : null}
+                    {window.location.href.includes("examBuilder?v1") ? (
+                      <>
+                        <Col md="12">
+                          <p>
+                            Para criar o simulado por um xml, é necessário
+                            seguir um formato específico.
+                          </p>
+                          <p>
+                            1- Baixe{" "}
+                            <a
+                              class="link-white"
+                              target="_blank"
+                              rel="noreferrer"
+                              href={SampleQuestions}
+                            >
+                              aqui
+                            </a>{" "}
+                            o formato e altere as informações que precisar.
+                          </p>
+                          <p>
+                            2- Garante que o xml esteja válido antes de
+                            importar.
+                          </p>
+                        </Col>
+                        <Col md="12">
+                          <p style={{ marginTop: "10px" }}>
+                            3- Importe o arquivo:
+                          </p>
+                        </Col>
+                        <Col md="12">
+                          <div
+                            style={{
+                              marginTop: "10px",
+                              position: "relative",
+                              top: "-26px",
+                            }}
+                          >
+                            <InputFile
+                              tpRetorno="String"
+                              value={xml}
+                              onChange={(value) => {
+                                console.log(value);
+                                setXml(value);
+                                carregaXML(value);
+                              }}
+                            ></InputFile>
+                          </div>
+                        </Col>
+                      </>
+                    ) : null}
+
+                    <Col md="10"></Col>
+                    <Col md="2">
+                      <DropdownButton
+                        style={{ marginBottom: "20px" }}
+                        id="dropdown-basic-button"
+                        title="Opções"
                       >
-                        <InputFile
-                          tpRetorno="String"
-                          value={xml}
-                          onChange={(value) => {
-                            console.log(value);
-                            setXml(value);
-                            carregaXML(value);
-                          }}
-                        ></InputFile>
-                      </div>
-                    </Col> */}
+                        <Dropdown.Item href="/examBuilder">
+                          Criar manualmente
+                        </Dropdown.Item>
+                        <Dropdown.Item href="/examBuilder?v1">
+                          Crie a partir de um xml
+                        </Dropdown.Item>
+                        {/* <Dropdown.Item href="/examBuilder?v2">
+                          Edite um arquivo .jr
+                        </Dropdown.Item> */}
+                      </DropdownButton>
+                    </Col>
 
                     <Col md="12">
                       <div class="separator"></div>

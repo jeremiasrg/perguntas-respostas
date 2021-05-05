@@ -28,7 +28,7 @@ function ExamBuilder(props) {
   const [perguntas, setPerguntas] = useState([]);
   const [size, setSize] = useState(0);
   const [countSizeQuestions, setCountSizeQuestions] = useState(0);
-  const [xml, setXml] = useState();
+  const [arquivo, setArquivo] = useState();
 
   const auxPerguntas = [...perguntas];
 
@@ -150,6 +150,36 @@ function ExamBuilder(props) {
         </Col>
       </Row>
     ));
+  };
+
+  const carregaJR = (jr) => {
+    let rt = cypherUtils.decrypt(jr);
+    let string = Base64.atob(rt);
+    console.log(string);
+    let json = JSON.parse(string);
+    console.log(json);
+    setNome(json.title);
+    json.questions.map((question, i) => {
+      let pTexto = question.question;
+      let contCorrect = 0;
+      let respostas = [];
+      // console.log(question.question);
+      // console.log(question.multiple);
+      question.answers.map((answer, i) => {
+        if (answer.correct === true) {
+          contCorrect = contCorrect + 1;
+        }
+        console.log(answer.correct);
+
+        respostas.push({
+          text: answer.text,
+          correct: answer.correct === true,
+        });
+        return true;
+      });
+      addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+      return true;
+    });
   };
 
   const carregaXML = (xml) => {
@@ -297,11 +327,45 @@ function ExamBuilder(props) {
                           >
                             <InputFile
                               tpRetorno="String"
-                              value={xml}
+                              value={arquivo}
                               onChange={(value) => {
                                 console.log(value);
-                                setXml(value);
+                                setArquivo(value);
                                 carregaXML(value);
+                              }}
+                            ></InputFile>
+                          </div>
+                        </Col>
+                      </>
+                    ) : null}
+                    {window.location.href.includes("examBuilder?v2") ? (
+                      <>
+                        <Col md="12">
+                          <p>Para editar um arquivo .jr é simples.</p>
+                          <p>
+                            1- Importe o arquivo, para carregar as perguntas e
+                            respostas automaticamente.
+                          </p>
+                          <p>
+                            2- Altere como quiser e faça o download do arquivo
+                            editado.
+                          </p>
+                        </Col>
+                        <Col md="12">
+                          <div
+                            style={{
+                              marginTop: "10px",
+                              position: "relative",
+                              top: "-26px",
+                            }}
+                          >
+                            <InputFile
+                              tpRetorno="String"
+                              value={arquivo}
+                              onChange={(value) => {
+                                console.log(value);
+                                setArquivo(value);
+                                carregaJR(value);
                               }}
                             ></InputFile>
                           </div>
@@ -322,9 +386,9 @@ function ExamBuilder(props) {
                         <Dropdown.Item href="/examBuilder?v1">
                           Crie a partir de um xml
                         </Dropdown.Item>
-                        {/* <Dropdown.Item href="/examBuilder?v2">
+                        <Dropdown.Item href="/examBuilder?v2">
                           Edite um arquivo .jr
-                        </Dropdown.Item> */}
+                        </Dropdown.Item>
                       </DropdownButton>
                     </Col>
 

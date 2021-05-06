@@ -11,6 +11,8 @@
     "bootstrap": "^4.6.0",
     "crypto-js": "^4.0.0",
     "date-fns": "^2.21.1",
+    "i18next": "^20.2.2",
+    "i18next-browser-languagedetector": "^6.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-datepicker": "^3.8.0",

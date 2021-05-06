@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import { i18n } from "../translate/i18n";
+
 function Header(props) {
   const [navbarShrink, setNavbarShrink] = useState(false);
   const [navbarShowLinks, setNavbarShowLinks] = useState(false);
@@ -60,27 +62,27 @@ function Header(props) {
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">
-                Início
+                {i18n.t("links.home")}
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#features">
-                Funcionalidades
+                {i18n.t("links.features")}
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#telas">
-                Telas
+                {i18n.t("links.screens")}
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#howitworks">
-                Como começar
+                {i18n.t("links.howToStart")}
               </a>
             </li>
             <li class="nav-item">
               <Link to="/examBuilder" className="nav-link">
-                Crie um simulado
+                {i18n.t("links.examBuilder")}
               </Link>
             </li>
 

@@ -5,6 +5,7 @@ import "../styles/home.css";
 import * as FaIcons from "react-icons/fa";
 // import { Accordion, Card } from "react-bootstrap";
 import Header from "../components/Header";
+import { i18n } from "../translate/i18n";
 
 import img1 from "../assets/img/app-screenshots/1.png";
 import img2 from "../assets/img/app-screenshots/2.png";
@@ -41,22 +42,13 @@ function Home(props) {
           <div class="row align-items-center">
             <div class="col-md-7 ">
               <div class="home-text">
-                <h1>
-                  Crie seus simulados e estude pelo celular de onde estiver.
-                </h1>
-                <p>
-                  A plataforma JR Simulator permite que você tenha
-                  funcionalidades de simulação de prova igual a uma prova de
-                  certificação. Com contabilidade de tempo, nota e histórico de
-                  tentativa.
-                </p>
+                <h1>{i18n.t("titles.home1")}</h1>
+                <p>{i18n.t("titles.home2")}</p>
+                <p style={{ marginTop: "10px" }}>{i18n.t("titles.home3")}</p>
                 <p style={{ marginTop: "10px" }}>
-                  Indicado para certificações em TI e provas de concursos.
-                </p>
-                <p style={{ marginTop: "10px" }}>
-                  Veja como começar, clicanco{" "}
+                  {i18n.t("titles.home4")}{" "}
                   <a class="link-white" href="/#howitworks">
-                    aqui
+                    {i18n.t("messages.here")}
                   </a>
                 </p>
                 <div class="home-btn">
@@ -69,7 +61,7 @@ function Home(props) {
                     <FaIcons.FaGooglePlay
                       style={{ fontSize: "30px", marginRight: "10px" }}
                     />
-                    download app
+                    {i18n.t("buttons.downloadApp")}
                   </a>
 
                   {/* <button
@@ -102,7 +94,8 @@ function Home(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Principais <span>Funcionalidades</span>
+                  {i18n.t("titles.principals")}{" "}
+                  <span> {i18n.t("titles.features")}</span>
                   {/* <span>features</span> */}
                 </h2>
               </div>
@@ -114,30 +107,22 @@ function Home(props) {
                 <div class="icon">
                   <FaIcons.FaCode />
                 </div>
-                <h3>Crie e edite qualquer simulado</h3>
-                <p>
-                  Faça e modifique seu simulado configurando perguntas e
-                  respostas da forma que quiser.
-                </p>
+                <h3>{i18n.t("titles.feature1")}</h3>
+                <p>{i18n.t("messages.feature1")}</p>
               </div>
               <div class="feature-item col-md-3">
                 <div class="icon">
                   <FaIcons.FaEdit />
                 </div>
-                <h3>Histórico de performance</h3>
-                <p>
-                  Acompanhe a evolução de sua performance em cada tentativa.
-                </p>
+                <h3>{i18n.t("titles.feature2")}</h3>
+                <p>{i18n.t("messages.feature2")}</p>
               </div>
               <div class="feature-item col-md-3">
                 <div class="icon">
                   <FaIcons.FaPaintBrush />
                 </div>
-                <h3>Embaralhar perguntas e respostas</h3>
-                <p>
-                  Embaralhe perguntas e respostas para ter uma experiência mais
-                  desafiadora.
-                </p>
+                <h3>{i18n.t("titles.feature3")}</h3>
+                <p>{i18n.t("messages.feature3")}</p>
               </div>
             </div>
           </div>
@@ -227,7 +212,8 @@ function Home(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Telas do <span>Aplicativo</span>
+                  {i18n.t("titles.screens")}{" "}
+                  <span>{i18n.t("titles.application")}</span>
                 </h2>
               </div>
             </div>
@@ -262,7 +248,7 @@ function Home(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Como <span>começar</span> ?
+                  {i18n.t("titles.how")} <span> {i18n.t("titles.start")}</span>{" "}
                 </h2>
               </div>
             </div>
@@ -271,28 +257,28 @@ function Home(props) {
             <div class="col-lg-4 col-md-6">
               <div class="how-it-works-item line-right">
                 <div class="step">1</div>
-                <h3>Crie o simulado</h3>
+                <h3>{i18n.t("titles.step1")} </h3>
                 <p>
-                  Clique <a href="/examBuilder">aqui</a> e defina suas perguntas
-                  e respostas.
+                  {i18n.t("messages.click")}{" "}
+                  <a class="link-white" href="/examBuilder">
+                    {i18n.t("messages.here")}
+                  </a>{" "}
+                  {i18n.t("messages.step1")}
                 </p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
               <div class="how-it-works-item line-right">
                 <div class="step">2</div>
-                <h3>Baixe o arquivo ".jr"</h3>
-                <p>
-                  Após terminar de criar o simulado, clique em Download para
-                  baixar o arquivo ".jr"
-                </p>
+                <h3>{i18n.t("titles.step2")} </h3>
+                <p>{i18n.t("messages.step2")}</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
               <div class="how-it-works-item">
                 <div class="step">3</div>
-                <h3>Importe o arquivo no app</h3>
-                <p>Importe o arquivo ".jr" no app e dê o play.</p>
+                <h3>{i18n.t("titles.step3")} </h3>
+                <p>{i18n.t("messages.step3")}</p>
               </div>
             </div>
             {/* <div class="col-lg-3 col-md-6">

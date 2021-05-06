@@ -5,6 +5,8 @@ import TextArea from "../components/communs/input/TextArea";
 import CheckBox from "../components/communs/input/CheckBox";
 import * as FaIcons from "react-icons/fa";
 
+import { i18n } from "../translate/i18n";
+
 function Pergunta(props) {
   const [texto, setTexto] = useState("");
   const [multiple, setMultiple] = useState();
@@ -16,11 +18,10 @@ function Pergunta(props) {
 
   return (
     <>
-
       <Col md="12" id={"Q" + (props.index + 1)}>
         <TextArea
           md="12"
-          label={"Questão " + (props.index + 1) + " "}
+          label={i18n.t("messages.question") + (props.index + 1) + " "}
           autoFocus
           rows="4"
           value={texto}
@@ -43,13 +44,13 @@ function Pergunta(props) {
             props.removePergunta(props.index);
           }}
         >
-          <FaIcons.FaTimes style={{ color: "#ff5252"}} />
+          <FaIcons.FaTimes style={{ color: "#ff5252" }} />
         </div>
       </Col>
-      <Col md="12" style={{"marginTop": "-15px",}}>
+      <Col md="12" style={{ marginTop: "-15px" }}>
         <CheckBox
           md="auto"
-          label="Multipla escolha?"
+          label={i18n.t("messages.multipleChoice")}
           value={multiple}
           onChange={(valor) => {
             setMultiple(valor);
@@ -58,7 +59,6 @@ function Pergunta(props) {
         ></CheckBox>
       </Col>
     </>
-
   );
 }
 export default Pergunta;

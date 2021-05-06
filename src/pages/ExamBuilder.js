@@ -21,6 +21,8 @@ import SampleQuestions from "../assets/sampleQuestions.xml";
 import * as cypherUtils from "../base/utils/cypherUtils";
 import * as FaIcons from "react-icons/fa";
 
+import { i18n } from "../translate/i18n";
+
 import xml2js from "xml2js";
 
 function ExamBuilder(props) {
@@ -258,7 +260,8 @@ function ExamBuilder(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Criação de <span>simulador</span>
+                  {i18n.t("titles.creation")}{" "}
+                  <span>{i18n.t("titles.exam")}</span>
                 </h2>
               </div>
             </div>
@@ -269,7 +272,7 @@ function ExamBuilder(props) {
                 showSaveButton={perguntas.length > 0}
                 showCancelButton={false}
                 onSave={onSave}
-                saveLabel="Download '.jr'"
+                saveLabel={i18n.t("buttons.downloadJr")}
                 mdButtons="12"
               >
                 <Container fluid>
@@ -277,44 +280,31 @@ function ExamBuilder(props) {
                     {window.location.href.includes("examBuilder?v") ===
                     false ? (
                       <Col md="12">
-                        <p>
-                          Adicione perguntas e suas possíveis respostas. Quando
-                          acabar, clique no botão download para baixar o
-                          simulado.
-                        </p>
-                        <p>
-                          Pronto, agora é só carregar o simulado no app JR
-                          Simulator e começar a estudar.
-                        </p>
+                        <p>{i18n.t("messages.builder1")}</p>
+                        <p>{i18n.t("messages.builder2")}</p>
                       </Col>
                     ) : null}
                     {window.location.href.includes("examBuilder?v1") ? (
                       <>
                         <Col md="12">
+                          <p>{i18n.t("messages.builder3")}</p>
                           <p>
-                            Para criar o simulado por um xml, é necessário
-                            seguir um formato específico.
-                          </p>
-                          <p>
-                            1- Baixe{" "}
+                            {i18n.t("messages.builder4")}{" "}
                             <a
                               class="link-white"
                               target="_blank"
                               rel="noreferrer"
                               href={SampleQuestions}
                             >
-                              aqui
+                              {i18n.t("messages.here")}
                             </a>{" "}
-                            o formato e altere as informações que precisar.
+                            {i18n.t("messages.builder5")}
                           </p>
-                          <p>
-                            2- Garanta que o xml esteja válido antes de
-                            importar.
-                          </p>
+                          <p>{i18n.t("messages.builder6")}</p>
                         </Col>
                         <Col md="12">
                           <p style={{ marginTop: "10px" }}>
-                            3- Importe o arquivo:
+                            {i18n.t("messages.builder7")}
                           </p>
                         </Col>
                         <Col md="12">
@@ -341,15 +331,9 @@ function ExamBuilder(props) {
                     {window.location.href.includes("examBuilder?v2") ? (
                       <>
                         <Col md="12">
-                          <p>Para editar um arquivo .jr é simples.</p>
-                          <p>
-                            1- Importe o arquivo, para carregar as perguntas e
-                            respostas automaticamente.
-                          </p>
-                          <p>
-                            2- Altere como quiser e faça o download do arquivo
-                            editado.
-                          </p>
+                          <p>{i18n.t("messages.builder8")}</p>
+                          <p>{i18n.t("messages.builder9")}</p>
+                          <p>{i18n.t("messages.builder10")}</p>
                         </Col>
                         <Col md="12">
                           <div
@@ -378,16 +362,16 @@ function ExamBuilder(props) {
                       <DropdownButton
                         style={{ marginBottom: "20px" }}
                         id="dropdown-basic-button"
-                        title="Opções"
+                        title={i18n.t("buttons.options")}
                       >
                         <Dropdown.Item href="/examBuilder">
-                          Criar manualmente
+                          {i18n.t("messages.makeManual")}
                         </Dropdown.Item>
                         <Dropdown.Item href="/examBuilder?v1">
-                          Crie a partir de um xml
+                          {i18n.t("messages.makebyXML")}
                         </Dropdown.Item>
                         <Dropdown.Item href="/examBuilder?v2">
-                          Edite um arquivo .jr
+                          {i18n.t("messages.editJR")}
                         </Dropdown.Item>
                       </DropdownButton>
                     </Col>
@@ -401,7 +385,7 @@ function ExamBuilder(props) {
                         value={nome}
                         onChange={(valor) => setNome(valor)}
                         required={true}
-                        label="Título do simulado"
+                        label={i18n.t("messages.examTitle")}
                       ></InputText>
                     </Col>
                   </Row>
@@ -413,7 +397,7 @@ function ExamBuilder(props) {
         </div>
         <div class="map-questions" style={{ display: "flex" }}>
           <div class="q">
-            Questões: &nbsp;
+            {i18n.t("messages.questions")} &nbsp;
             {perguntas.map((per, index) => {
               return (
                 <>
@@ -439,7 +423,7 @@ function ExamBuilder(props) {
               addPergunta();
             }}
           >
-            +Pergunta
+            {i18n.t("buttons.addQuestion")}
           </Button>
         </div>
       </section>

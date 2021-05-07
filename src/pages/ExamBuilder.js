@@ -40,20 +40,51 @@ function ExamBuilder(props) {
 
   function addPergunta(
     texto = "",
-    respostas = [{ text: "", correct: false, marked: false }],
+    respostas = [
+      { text: "", correct: false, marked: false },
+      { text: "", correct: false, marked: false },
+      { text: "", correct: false, marked: false },
+    ],
     multiple = false
   ) {
     let questions = perguntas;
 
-    questions.push({
-      multiple: multiple,
-      question: texto,
-      answers: respostas,
-    });
+    let arraySize = questions.length;
 
-    setPerguntas(questions);
-    setSize(perguntas.length);
-    setCountSizeQuestions(countSizeQuestions + 1);
+    if (arraySize > 0) {
+      let countCorrect = 0;
+      questions[arraySize - 1].answers.map((ans, index) => {
+        console.log(ans);
+
+        if (ans.correct === true) {
+          countCorrect = countCorrect + 1;
+        }
+        return true;
+      });
+      if (countCorrect === 0) {
+        alert(i18n.t("messages.builder11"));
+      } else {
+        questions.push({
+          multiple: multiple,
+          question: texto,
+          answers: respostas,
+        });
+
+        setPerguntas(questions);
+        setSize(perguntas.length);
+        setCountSizeQuestions(countSizeQuestions + 1);
+      }
+    } else {
+      questions.push({
+        multiple: multiple,
+        question: texto,
+        answers: respostas,
+      });
+
+      setPerguntas(questions);
+      setSize(perguntas.length);
+      setCountSizeQuestions(countSizeQuestions + 1);
+    }
   }
 
   function removePergunta(index) {
@@ -227,6 +258,7 @@ function ExamBuilder(props) {
   function onSave() {
     setSize(size + 1);
     let finalContent = { title: nome, questions: perguntas };
+
     // console.log("Final content");
     // console.log(finalContent);
 
@@ -244,7 +276,7 @@ function ExamBuilder(props) {
 
   function download(output) {
     const element = document.createElement("a");
-    const file = new Blob([output], { type: "text/plain;charset=utf-8" });
+    const file = new Blob([output], { type: "image/jr;charset=utf-8" });
     element.href = URL.createObjectURL(file);
     element.download = nome + ".jr";
     document.body.appendChild(element);

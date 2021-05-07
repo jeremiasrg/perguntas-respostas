@@ -52,6 +52,7 @@ const messages = {
         builder8: `To edit a .jr file is simple.`,
         builder9: `1- Import the file, to load the questions and answers automatically.`,
         builder10: `2- Change as you wish and download the edited file.`,
+        builder11: `You cannot create a new question without informing which answer is correct in the previous question`,
         makeManual: `Create manually`,
         makebyXML: `Create from xml`,
         editJR: `Edit a .jr file`,

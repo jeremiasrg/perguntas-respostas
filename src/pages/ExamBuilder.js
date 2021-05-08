@@ -207,6 +207,7 @@ function ExamBuilder(props) {
         respostas.push({
           text: answer.text,
           correct: answer.correct === true,
+          marked: false,
         });
         return true;
       });
@@ -241,6 +242,7 @@ function ExamBuilder(props) {
             respostas.push({
               text: resposta.$.text,
               correct: resposta.$.correct === "true",
+              marked: false,
             });
             return true;
           });

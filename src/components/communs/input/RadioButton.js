@@ -29,6 +29,7 @@ function RadioButton(props) {
         name={props.name}
         label={props.label}
         onChange={onChange}
+        style={props.style}
       />
       {props.errorFeedback && (
         <Form.Control.Feedback type="invalid">

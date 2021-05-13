@@ -885,11 +885,37 @@ ul {
   color: #ffff;
 }
 
+.config-exam .result {
+  color: #f7f7f7;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.config-exam .result .correct {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  margin: 5px;
+  background-color: green;
+  border-radius: 20px;
+}
+.config-exam .result .incorrect {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 10px;
+  margin: 5px;
+  background-color: red;
+  border-radius: 20px;
+}
+
 .config-exam p,
 .config-exam .numero,
 .config-exam .letra,
 .config-exam .q,
 .config-exam label,
+.config-exam h3,
 .config-exam h5 {
   color: #ffffff;
   font-weight: 300;

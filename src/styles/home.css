@@ -855,6 +855,46 @@ ul {
   padding-left: 10px;
 }
 
+/* Run Exam */
+
+.run-exam {
+  /* box-shadow: var(--shadow-black-300); */
+  /* padding: 20px; */
+}
+/* Config Exam */
+.config-exam {
+  /* box-shadow: var(--shadow-black-300); */
+  /* padding: 20px; */
+}
+
+.btn-bar-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--bg-dark);
+  padding: 10px;
+  box-shadow: var(--shadow-black-300);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.config-exam .exam-title {
+  align-content: center;
+  text-align: center;
+  color: #ffff;
+}
+
+.config-exam p,
+.config-exam .numero,
+.config-exam .letra,
+.config-exam .q,
+.config-exam label,
+.config-exam h5 {
+  color: #ffffff;
+  font-weight: 300;
+}
+
 /* Responsive */
 
 @media (max-width: 991px) {

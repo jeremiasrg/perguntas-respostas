@@ -7,6 +7,7 @@ const messages = {
         screens: "Screens",
         howToStart: "Get started",
         examBuilder: "Make an exam simulation",
+        runExam: "Run Exam",
       },
       titles: {
         home1:
@@ -31,6 +32,7 @@ const messages = {
         step3: `Import the file into the app`,
         creation: `Creation of`,
         exam: `exam simulation`,
+        run: `Run`,
       },
       messages: {
         here: "here",
@@ -41,6 +43,9 @@ const messages = {
         step1: `and define your questions and answers.`,
         step2: `After you finish creating the simulation, click Download to download the ".jr" file`,
         step3: `Import the ".jr" file into the app and play.`,
+        runExamMs1: `Load the ".jr" file and perform the test at the given time.`,
+        runExamMs2: `Minutes to perform the exam`,
+        runExamMs3: `Test completed successfully`,
 
         builder1: `Add questions and their possible answers. When you're done, click the download button to download the simulation.`,
         builder2: `Okay, now just load the simulated in the JR Simulator app and start studying.`,
@@ -64,9 +69,16 @@ const messages = {
       buttons: {
         save: "Save",
         downloadApp: "Download App",
+        runByWeb: "Run using browser",
         options: "Options",
         addQuestion: "+Question",
         downloadJr: "Download '.jr' file",
+        next: "Next",
+        back: "Back",
+        showAnswer: "Show Answers",
+        hideAnswer: "Hide Answers",
+        finalize: "Finalize",
+        startNow: "Start now",
       },
     },
   },

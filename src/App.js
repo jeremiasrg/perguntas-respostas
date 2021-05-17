@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home";
 import ExamBuilder from "./pages/ExamBuilder";
-import ConfigExam from "./pages/ConfigExam";
+import RunExam from "./pages/RunExam";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/examBuilder" component={ExamBuilder}></Route>
-        <Route exact path="/configExam" component={ConfigExam}></Route>
+        <Route exact path="/runExam" component={RunExam}></Route>
       </Switch>
     </Router>
   );

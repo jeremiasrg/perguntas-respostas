@@ -8,6 +8,7 @@ import Timer from "../components/Timer";
 import CheckBox from "../components/communs/input/CheckBox";
 import RadioButton from "../components/communs/input/RadioButton";
 import * as cypherUtils from "../base/utils/cypherUtils";
+import { i18n } from "../translate/i18n";
 
 function RunExam(props) {
   const [questions, setQuestions] = useState([]);
@@ -26,6 +27,7 @@ function RunExam(props) {
 
   useEffect(() => {
     createStructureVerifyQuestions();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title]);
 
   const carregaJR = (jr) => {
@@ -130,7 +132,7 @@ function RunExam(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                  Config <span>Exam</span>
+                {i18n.t("titles.run")} <span>{i18n.t("titles.exam")}</span>
                 </h2>
               </div>
             </div>
@@ -138,6 +140,9 @@ function RunExam(props) {
           <div class="run-exam">
             {showExam === false ? (
               <div class="row">
+                <Col md="12">
+                  <p>{i18n.t("messages.runExamMs1")}</p>
+                  </Col>
                 <Col md="12">
                   <div
                     style={{
@@ -166,7 +171,7 @@ function RunExam(props) {
                   >
                     <InputText
                       required="true"
-                      label="Minutos para realizar o teste"
+                      label={i18n.t("messages.runExamMs2")}
                       value={minutes}
                       onChange={(value) => {
                         setMinutes(value);
@@ -180,7 +185,7 @@ function RunExam(props) {
                       start();
                     }}
                   >
-                    Começar
+                    {i18n.t("buttons.startNow")}
                   </Button>
                 </Col>
               </div>
@@ -194,7 +199,7 @@ function RunExam(props) {
                 {showResult && (
                   <>
                     <Col md="12">
-                      <h3>Teste finalizado com sucesso</h3>
+                      <h3> {i18n.t("messages.runExamMs3")}</h3>
                     </Col>
                     <Col md="12">
                       <div class="result">
@@ -209,7 +214,8 @@ function RunExam(props) {
                     </Col>
                   </>
                 )}
-                <Col md="12">
+                <Col md="12" style={{display: "flex", justifyContent: "space-between"}}>
+                   <p >Pergunta {index +1}/{questions.length}</p>
                   {showResult === false && <Timer minutes={minutes} />}
                 </Col>
                 <Col md="12">
@@ -275,23 +281,24 @@ function RunExam(props) {
                 index > 0 && setIndex(index - 1);
               }}
             >
-              Voltar
+              {i18n.t("buttons.back")}
             </Button>
             <Button
               onClick={() => {
                 setShowAnswer(!showAnswer);
               }}
             >
-              {showAnswer ? "Esconder resposta" : "Mostrar resposta"}
+              {showAnswer ? i18n.t("buttons.hideAnswer") : i18n.t("buttons.showAnswer")}
             </Button>
             {questions.length === index + 1 && showResult === false ? (
               <Button
                 onClick={() => {
                   checkQuestionsIsCorrect(index);
                   setShowResult(true);
+                  setShowAnswer(true);
                 }}
               >
-                Finalizar
+                {i18n.t("buttons.finalize")}
               </Button>
             ) : (
               <Button
@@ -300,7 +307,7 @@ function RunExam(props) {
                   index + 1 !== questions.length && setIndex(index + 1);
                 }}
               >
-                Próximo
+                {i18n.t("buttons.next")}
               </Button>
             )}
           </div>

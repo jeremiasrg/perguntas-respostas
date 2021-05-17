@@ -7,6 +7,7 @@ const messages = {
         screens: "Pantallas",
         howToStart: "Como empezar",
         examBuilder: "Crea una simulación",
+        runExam: "Estudia ahora",
       },
       titles: {
         home1:
@@ -31,6 +32,7 @@ const messages = {
         step3: `Importar el archivo a la App`,
         creation: `Creación de`,
         exam: `simuladores`,
+        run: `Ejecutar`,
       },
       messages: {
         here: "aqui",
@@ -41,6 +43,9 @@ const messages = {
         step1: `y defina sus preguntas y respuestas.`,
         step2: `Una vez que haya terminado de crear la simulación, haga clic en Descargar para descargar el archivo ".jr"`,
         step3: `Importa el archivo ".jr" a lo app y clic en play.`,
+        runExamMs1: `Cargue el archivo ".jr" y realice la prueba en el momento indicado.`,
+        runExamMs2: `Minutos para realizar la prueba`,
+        runExamMs3: `Prueba completada con éxito`,
 
         builder1: `Agregue preguntas y sus posibles respuestas. Cuando haya terminado, haga clic en el botón de descarga para descargar la simulación.`,
         builder2: `Bien, ahora solo cargue el simulado en la aplicación JR Simulator y comience a estudiar.`,
@@ -64,9 +69,16 @@ const messages = {
       buttons: {
         save: "Ahorrar",
         downloadApp: "Descargar lo App",
+        runByWeb: "Ejecutar usando navegador",
         options: "Opciones",
         addQuestion: "+Pregunta",
         downloadJr: "Descargar archivo '.jr'",
+        next: "Próximo",
+        back: "Vuelve",
+        showAnswer: "Mostrar respuesta",
+        hideAnswer: "Ocultar respuesta",
+        finalize: "Terminar",
+        startNow: "Empezar ahora",
       },
     },
   },

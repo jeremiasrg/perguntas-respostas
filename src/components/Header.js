@@ -85,6 +85,11 @@ function Header(props) {
                 {i18n.t("links.examBuilder")}
               </Link>
             </li>
+            <li class="nav-item">
+              <Link to="/runExam" className="nav-link">
+                {i18n.t("links.runExam")}
+              </Link>
+            </li>
 
             {/* <li class="nav-item">
               <a class="nav-link" href="#contato">

@@ -28,6 +28,7 @@ function CheckBox(props) {
         checked={props.value}
         label={props.label}
         onChange={onChange}
+        style={props.style}
       />
       {props.errorFeedback && (
         <Form.Control.Feedback type="invalid">

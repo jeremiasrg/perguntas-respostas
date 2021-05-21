@@ -7,6 +7,7 @@ const messages = {
         screens: "Telas",
         howToStart: "Como começar",
         examBuilder: "Crie um simulado",
+        runExam: "Estudar agora",
       },
       titles: {
         home1: "Crie seus simulados e estude pelo celular de onde estiver.",
@@ -30,6 +31,7 @@ const messages = {
         step3: `Importe o arquivo no app`,
         creation: `Criação de`,
         exam: `simulador`,
+        run: `Rodar`,
       },
       messages: {
         here: "aqui",
@@ -43,6 +45,9 @@ const messages = {
         suas perguntas e respostas.`,
         step2: `Após terminar de criar o simulado, clique em Download para baixar o arquivo ".jr"`,
         step3: `Importe o arquivo ".jr" no app e dê o play.`,
+        runExamMs1: `Carrege o arquivo ".jr" e realize o teste no tempo determinado.`,
+        runExamMs2: `Minutos para realizar o teste`,
+        runExamMs3: `Teste finalizado com sucesso`,
 
         builder1: `Adicione perguntas e suas possíveis respostas. Quando acabar, clique no botão download para baixar o simulado.`,
         builder2: `Pronto, agora é só carregar o simulado no app JR Simulator e começar a estudar.`,
@@ -66,9 +71,16 @@ const messages = {
       buttons: {
         save: "Salvar",
         downloadApp: "Baixar o App",
+        runByWeb: "Rodar pelo browser",
         options: "Opções",
         addQuestion: "+Pergunta",
         downloadJr: "Baixar arquivo '.jr'",
+        next: "Próximo",
+        back: "Voltar",
+        showAnswer: "Mostrar resposta",
+        hideAnswer: "Esconder resposta",
+        finalize: "Finalizar",
+        startNow: "Começar",
       },
     },
   },

@@ -53,6 +53,7 @@ function Home(props) {
                 </p>
                 <div class="home-btn">
                   <a
+                  style={{marginRight: "10px", marginBottom: "15px"}}
                     href="https://play.google.com/store/apps/details?id=br.com.jr.jrsimulator"
                     class="btn btn-1"
                     target="_blank"
@@ -62,6 +63,17 @@ function Home(props) {
                       style={{ fontSize: "30px", marginRight: "10px" }}
                     />
                     {i18n.t("buttons.downloadApp")}
+                  </a>
+                  
+                  <a
+                   style={{ marginBottom: "15px"}}
+                    href="/runExam"
+                    class="btn btn-1"
+                  >
+                     <FaIcons.FaChrome
+                      style={{ fontSize: "30px", marginRight: "10px" }}
+                    />
+                    {i18n.t("buttons.runByWeb")}
                   </a>
 
                   {/* <button

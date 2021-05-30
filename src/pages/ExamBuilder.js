@@ -40,6 +40,7 @@ function ExamBuilder(props) {
 
   function addPergunta(
     texto = "",
+    img = "",
     respostas = [
       { text: "", correct: false, marked: false },
       { text: "", correct: false, marked: false },
@@ -54,7 +55,7 @@ function ExamBuilder(props) {
     if (arraySize > 0) {
       let countCorrect = 0;
       questions[arraySize - 1].answers.map((ans, index) => {
-        console.log(ans);
+        // console.log(ans);
 
         if (ans.correct === true) {
           countCorrect = countCorrect + 1;
@@ -67,6 +68,7 @@ function ExamBuilder(props) {
         questions.push({
           multiple: multiple,
           question: texto,
+          img: img,
           answers: respostas,
         });
 
@@ -78,6 +80,7 @@ function ExamBuilder(props) {
       questions.push({
         multiple: multiple,
         question: texto,
+        img: img,
         answers: respostas,
       });
 
@@ -88,7 +91,7 @@ function ExamBuilder(props) {
   }
 
   function removePergunta(index) {
-    console.log("Remove pergunta: " + index);
+    // console.log("Remove pergunta: " + index);
 
     let questions = perguntas;
 
@@ -99,7 +102,7 @@ function ExamBuilder(props) {
   }
 
   function addResposta(perguntaIndex) {
-    console.log(perguntaIndex);
+    // console.log(perguntaIndex);
 
     let questions = perguntas;
     questions[perguntaIndex].answers.push({
@@ -107,7 +110,7 @@ function ExamBuilder(props) {
       correct: false,
       marked: false,
     });
-    console.log(questions[perguntaIndex].answers.length);
+    // console.log(questions[perguntaIndex].answers.length);
 
     setPerguntas(questions);
     setSize(size + 1);
@@ -125,8 +128,8 @@ function ExamBuilder(props) {
     auxPerguntas[i].answers.map((resposta, index) => {
       return (resposta.correct = false);
     });
-    console.log("Perguntas resetadas");
-    console.log(auxPerguntas);
+    // console.log("Perguntas resetadas");
+    // console.log(auxPerguntas);
   }
 
   const escrevePerguntas = () => {
@@ -134,9 +137,11 @@ function ExamBuilder(props) {
       <Row>
         <Pergunta
           texto={auxPerguntas[index].question}
+          img={auxPerguntas[index].img}
           index={index}
           multiplaEscolha={auxPerguntas[index].multiple}
           onTextoChange={(valor) => (auxPerguntas[index].question = valor)}
+          onImgChange={(valor) => (auxPerguntas[index].img = valor)}
           onMultiplaEscolhaChange={(valor) => {
             resetRespostas(index);
             auxPerguntas[index].multiple = valor;
@@ -188,12 +193,13 @@ function ExamBuilder(props) {
   const carregaJR = (jr) => {
     let rt = cypherUtils.decrypt(jr);
     let string = Base64.atob(rt);
-    console.log(string);
+    // console.log(string);
     let json = JSON.parse(string);
-    console.log(json);
+    // console.log(json);
     setNome(json.title);
     json.questions.map((question, i) => {
       let pTexto = question.question;
+      let pImg = question.img;
       let contCorrect = 0;
       let respostas = [];
       // console.log(question.question);
@@ -202,7 +208,7 @@ function ExamBuilder(props) {
         if (answer.correct === true) {
           contCorrect = contCorrect + 1;
         }
-        console.log(answer.correct);
+        // console.log(answer.correct);
 
         respostas.push({
           text: answer.text,
@@ -211,7 +217,7 @@ function ExamBuilder(props) {
         });
         return true;
       });
-      addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+      addPergunta(pTexto, pImg, respostas, contCorrect > 1 ? true : false);
       return true;
     });
   };
@@ -224,16 +230,17 @@ function ExamBuilder(props) {
     parser
       .parseStringPromise(xml)
       .then(function (result) {
-        console.log(result);
+        // console.log(result);
 
         setNome(result.Test.$.title);
         result.Test.Questions[0].Question.map((pergunta, i) => {
           //console.log(pergunta);
           let pTexto = pergunta.$.text;
+          let pImg = pergunta.$.img;
           let respostas = [];
           let contCorrect = 0;
           pergunta.Answers[0].Answer.map((resposta, i2) => {
-            console.log(resposta.$.correct);
+            // console.log(resposta.$.correct);
 
             if (resposta.$.correct === "true") {
               contCorrect = contCorrect + 1;
@@ -246,14 +253,14 @@ function ExamBuilder(props) {
             });
             return true;
           });
-          console.log(contCorrect);
-          addPergunta(pTexto, respostas, contCorrect > 1 ? true : false);
+          // console.log(contCorrect);
+          addPergunta(pTexto, pImg, respostas, contCorrect > 1 ? true : false);
           return true;
         });
       })
       .catch(function (err) {
         // Failed
-        console.log(err);
+        // console.log(err);
       });
   };
 
@@ -353,7 +360,7 @@ function ExamBuilder(props) {
                               tpRetorno="String"
                               value={arquivo}
                               onChange={(value) => {
-                                console.log(value);
+                                // console.log(value);
                                 setArquivo(value);
                                 carregaXML(value);
                               }}
@@ -381,7 +388,7 @@ function ExamBuilder(props) {
                               tpRetorno="String"
                               value={arquivo}
                               onChange={(value) => {
-                                console.log(value);
+                                // console.log(value);
                                 setArquivo(value);
                                 carregaJR(value);
                               }}

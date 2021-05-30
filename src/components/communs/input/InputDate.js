@@ -30,7 +30,7 @@ function InputDate(props) {
         name={props.name}
         onChange={(value) => {
           setState(new Date(value));
-          console.log(value);
+          // console.log(value);
 
           props.onChange && props.onChange(new Date(value));
         }}

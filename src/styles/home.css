@@ -773,7 +773,7 @@ ul {
 }
 
 .link-white {
-  color: white;
+  color: var(--color-1);
   font-weight: 400;
 }
 
@@ -858,14 +858,14 @@ ul {
 /* Run Exam */
 
 .run-exam {
-  /* box-shadow: var(--shadow-black-300); */
-  /* padding: 20px; */
+  box-shadow: var(--shadow-black-300);
+  padding: 20px;
 }
 /* Config Exam */
-.config-exam {
-  /* box-shadow: var(--shadow-black-300); */
-  /* padding: 20px; */
-}
+/* .config-exam { */
+/* box-shadow: var(--shadow-black-300); */
+/* padding: 20px; */
+/* } */
 
 .btn-bar-container {
   position: fixed;
@@ -908,6 +908,12 @@ ul {
   margin: 5px;
   background-color: red;
   border-radius: 20px;
+}
+
+.icon-img {
+  color: var(--main-color);
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .config-exam p,

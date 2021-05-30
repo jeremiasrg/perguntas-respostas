@@ -35,7 +35,7 @@ export async function invokePostAPI(
   APPS_URL = APPS_URL_ENUM.APP
 ) {
   let url = APPS_URL + context;
-  console.log(url);
+  // console.log(url);
 
   try {
     let dataPost = null;
@@ -86,7 +86,7 @@ export async function invokeRemoveAPI(
   APPS_URL = APPS_URL_ENUM.APP
 ) {
   let url = APPS_URL + context + "/" + id + "/" + idUser;
-  console.log(url);
+  // console.log(url);
 
   try {
     const dataRemove = await remove(url, header);

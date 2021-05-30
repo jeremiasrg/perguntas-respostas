@@ -36,7 +36,7 @@ function Forms(props) {
     // setGlobal({ isLoading: true });
     if (props.onSave === undefined) {
       let json = await montarJsonAPI();
-      console.log(json);
+      // console.log(json);
 
       if (props.data.id === undefined) {
         // Novo
@@ -64,7 +64,7 @@ function Forms(props) {
 
   function escreveCamposDoForm(props) {
     if (props.data !== undefined && props.data.fields !== undefined) {
-      console.log(props.data);
+      // console.log(props.data);
       const fields = props.data.fields;
 
       let result = [];
@@ -136,8 +136,8 @@ function Forms(props) {
             ></SelectBox>
           );
         } else if (element.type === "MultipleSelectBox") {
-          console.log("valor recuperado");
-          console.log(element.value);
+          // console.log("valor recuperado");
+          // console.log(element.value);
 
           result.push(
             <MultipleSelectBox
@@ -225,8 +225,8 @@ function Forms(props) {
             valor = null;
           }
         } else if (campos[index].type === "MultipleSelectBox") {
-          console.log("multiple");
-          console.log(comp[0].options);
+          // console.log("multiple");
+          // console.log(comp[0].options);
 
           const options = comp[0].options;
           let arrayValue = [];
@@ -297,9 +297,9 @@ function Forms(props) {
       }
     }
     if (props.teste !== null && props.teste === true) {
-      console.log(objJson);
-      console.log("Agora em String");
-      console.log(JSON.stringify(objJson));
+      // console.log(objJson);
+      // console.log("Agora em String");
+      // console.log(JSON.stringify(objJson));
     }
 
     return objJson;

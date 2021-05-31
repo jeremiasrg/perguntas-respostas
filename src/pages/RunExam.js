@@ -27,14 +27,14 @@ function RunExam(props) {
 
   useEffect(() => {
     createStructureVerifyQuestions();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title]);
 
   const carregaJR = (jr) => {
     let rt = cypherUtils.decrypt(jr);
     let string = Base64.atob(rt);
     let json = JSON.parse(string);
-    console.log(json);
+    // console.log(json);
     setQuestions(json.questions);
     setTitle(json.title);
   };
@@ -49,8 +49,8 @@ function RunExam(props) {
   };
 
   function onChangeAnswer(indexQuestion, indexAnswer) {
-    console.log("indexQuestion: " + indexQuestion);
-    console.log("indexAnswer: " + indexAnswer);
+    // console.log("indexQuestion: " + indexQuestion);
+    // console.log("indexAnswer: " + indexAnswer);
     let r = questions[indexQuestion].answers[indexAnswer].marked;
     if (auxQuestions[indexQuestion].multiple === false) {
       resetAnswers(indexQuestion);
@@ -67,7 +67,7 @@ function RunExam(props) {
   }
 
   function createStructureVerifyQuestions() {
-    console.log("CALL createStructureVerifyQuestions");
+    // console.log("CALL createStructureVerifyQuestions");
 
     if (index === 0 && verifyQuestions.length === 0) {
       // console.log("PASSOU DO IF createStructureVerifyQuestions");
@@ -119,7 +119,7 @@ function RunExam(props) {
     if (auxVerifyQuestions.length > 0) {
       auxVerifyQuestions[index].correct = correct;
       setVerifyQuestions(auxVerifyQuestions);
-      console.log(auxVerifyQuestions);
+      // console.log(auxVerifyQuestions);
     }
   }
 
@@ -132,17 +132,17 @@ function RunExam(props) {
             <div class="col-lg-8">
               <div class="section-title">
                 <h2>
-                {i18n.t("titles.run")} <span>{i18n.t("titles.exam")}</span>
+                  {i18n.t("titles.run")} <span>{i18n.t("titles.exam")}</span>
                 </h2>
               </div>
             </div>
           </div>
           <div class="run-exam">
             {showExam === false ? (
-              <div class="row">
+              <div class="row" className="">
                 <Col md="12">
                   <p>{i18n.t("messages.runExamMs1")}</p>
-                  </Col>
+                </Col>
                 <Col md="12">
                   <div
                     style={{
@@ -154,7 +154,7 @@ function RunExam(props) {
                     <InputFile
                       tpRetorno="String"
                       onChange={(value) => {
-                        console.log(value);
+                        // console.log(value);
 
                         carregaJR(value);
                       }}
@@ -214,12 +214,20 @@ function RunExam(props) {
                     </Col>
                   </>
                 )}
-                <Col md="12" style={{display: "flex", justifyContent: "space-between"}}>
-                   <p >Pergunta {index +1}/{questions.length}</p>
+                <Col
+                  md="12"
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <p>
+                    Pergunta {index + 1}/{questions.length}
+                  </p>
                   {showResult === false && <Timer minutes={minutes} />}
                 </Col>
                 <Col md="12">
                   <p>{auxQuestions[index].question}</p>
+                </Col>
+                <Col md="12" style={{ marginBottom: "15px" }}>
+                  <img width="100%" alt="img" src={auxQuestions[index].img} />
                 </Col>
                 {auxQuestions[index].answers.map((ans, i) => {
                   return (
@@ -288,7 +296,9 @@ function RunExam(props) {
                 setShowAnswer(!showAnswer);
               }}
             >
-              {showAnswer ? i18n.t("buttons.hideAnswer") : i18n.t("buttons.showAnswer")}
+              {showAnswer
+                ? i18n.t("buttons.hideAnswer")
+                : i18n.t("buttons.showAnswer")}
             </Button>
             {questions.length === index + 1 && showResult === false ? (
               <Button

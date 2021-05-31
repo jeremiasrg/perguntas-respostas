@@ -27,6 +27,6 @@ export const decrypt = (value) => {
   let bytes = crypto.AES.decrypt(value, secret);
   let decryptedData = bytes.toString(crypto.enc.Utf8);
 
-  console.log(decryptedData);
+  // console.log(decryptedData);
   return decryptedData;
 };

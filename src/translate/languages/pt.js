@@ -60,7 +60,7 @@ const messages = {
         builder9: `1- Importe o arquivo, para carregar as perguntas e respostas automaticamente.`,
         builder10: `2- Altere como quiser e faça o download do arquivo editado.`,
         builder11: `Voce não pode criar uma nova questão sem informar qual resposta esta correta na pergunta anterior`,
-        builder12: `Tamanho máximo permitido por imagem é de 50kb`,
+        builder12: `Tamanho máximo permitido por imagem é de 15kb`,
         makeManual: `Criar manualmente`,
         makebyXML: `Crie a partir de um xml`,
         editJR: `Edite um arquivo .jr`,

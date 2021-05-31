@@ -72,7 +72,7 @@ function Pergunta(props) {
         <InputFile
           accept=".jpg"
           onChange={(e, file) => {
-            if (file.size < 50000) {
+            if (file.size < 15000) {
               console.log(file);
               setImg(e);
               props.onImgChange(e);

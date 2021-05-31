@@ -58,7 +58,7 @@ const messages = {
         builder9: `1- Import the file, to load the questions and answers automatically.`,
         builder10: `2- Change as you want and download the edited file.`,
         builder11: `You cannot create a new question without informing which answer is correct in the previous question`,
-        builder12: `Maximum size allowed per image is 50kb`,
+        builder12: `Maximum size allowed per image is 15 kb`,
         makeManual: `Create manually`,
         makebyXML: `Create from xml`,
         editJR: `Edit a .jr file`,

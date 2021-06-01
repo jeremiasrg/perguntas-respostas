@@ -53,7 +53,7 @@ function Home(props) {
                 </p>
                 <div class="home-btn">
                   <a
-                  style={{marginRight: "10px", marginBottom: "15px"}}
+                    style={{ marginRight: "10px", marginBottom: "15px" }}
                     href="https://play.google.com/store/apps/details?id=br.com.jr.jrsimulator"
                     class="btn btn-1"
                     target="_blank"
@@ -64,13 +64,13 @@ function Home(props) {
                     />
                     {i18n.t("buttons.downloadApp")}
                   </a>
-                  
+
                   <a
-                   style={{ marginBottom: "15px"}}
+                    style={{ marginBottom: "15px" }}
                     href="/runExam"
                     class="btn btn-1"
                   >
-                     <FaIcons.FaChrome
+                    <FaIcons.FaChrome
                       style={{ fontSize: "30px", marginRight: "10px" }}
                     />
                     {i18n.t("buttons.runByWeb")}
@@ -99,6 +99,72 @@ function Home(props) {
         </div>
       </section>
       {/* Home section end */}
+      {/* How it works  Section start */}
+      <section id="howitworks" class="how-it-works section-padding">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="section-title">
+                <h2>
+                  {i18n.t("titles.how")} <span> {i18n.t("titles.start")}</span>{" "}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="how-it-works-item line-right">
+                <div class="step">1</div>
+                <h3>{i18n.t("titles.step1")} </h3>
+                <p>
+                  {i18n.t("messages.click")}{" "}
+                  <a class="link-white" href="/examBuilder">
+                    {i18n.t("messages.here")}
+                  </a>{" "}
+                  {i18n.t("messages.step1")}
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="how-it-works-item line-right">
+                <div class="step">2</div>
+                <h3>{i18n.t("titles.step2")} </h3>
+                <p>{i18n.t("messages.step2")}</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="how-it-works-item">
+                <div class="step">3</div>
+                <h3>{i18n.t("titles.step3")} </h3>
+                <p>{i18n.t("messages.step3")}</p>
+              </div>
+            </div>
+            {/* <div class="col-lg-3 col-md-6">
+              <div class="how-it-works-item ">
+                <div class="step">4</div>
+                <h3>order</h3>
+                <p>
+                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
+                </p>
+              </div>
+            </div> */}
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <iframe
+                width="100%"
+                height="500"
+                src="https://www.youtube.com/embed/Iu_8PBCo8oA"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* How it works  Section end */}
       {/* Features section start */}
       <section id="features" class="features section-padding">
         <div class="container">
@@ -253,59 +319,7 @@ function Home(props) {
         </div>
       </section>
       {/* App screenshots Section end */}
-      {/* How it works  Section start */}
-      <section id="howitworks" class="how-it-works section-padding">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="section-title">
-                <h2>
-                  {i18n.t("titles.how")} <span> {i18n.t("titles.start")}</span>{" "}
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="how-it-works-item line-right">
-                <div class="step">1</div>
-                <h3>{i18n.t("titles.step1")} </h3>
-                <p>
-                  {i18n.t("messages.click")}{" "}
-                  <a class="link-white" href="/examBuilder">
-                    {i18n.t("messages.here")}
-                  </a>{" "}
-                  {i18n.t("messages.step1")}
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="how-it-works-item line-right">
-                <div class="step">2</div>
-                <h3>{i18n.t("titles.step2")} </h3>
-                <p>{i18n.t("messages.step2")}</p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="how-it-works-item">
-                <div class="step">3</div>
-                <h3>{i18n.t("titles.step3")} </h3>
-                <p>{i18n.t("messages.step3")}</p>
-              </div>
-            </div>
-            {/* <div class="col-lg-3 col-md-6">
-              <div class="how-it-works-item ">
-                <div class="step">4</div>
-                <h3>order</h3>
-                <p>
-                  Loren ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim ipuluim
-                </p>
-              </div>
-            </div> */}
-          </div>
-        </div>
-      </section>
-      {/* How it works  Section end */}
+
       {/* Faq  Section start */}
       {/* <section class="faq section-padding">
         <div class="container">
@@ -381,11 +395,27 @@ function Home(props) {
           <div class="row">
             <div class="col-lg-12 social">
               <a
+                style={{ marginRight: "10px" }}
                 href="https://www.facebook.com/JR-Simulator-105038411741180"
                 rel="noreferrer"
                 target="_blank"
               >
                 <FaIcons.FaFacebook />
+              </a>
+              <a
+                style={{ marginRight: "10px" }}
+                href="https://www.linkedin.com/company/jr-simulator"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FaIcons.FaLinkedin />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UC-wVjQNixZjvpWp9BMyLNRw"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FaIcons.FaYoutube />
               </a>
             </div>
           </div>
